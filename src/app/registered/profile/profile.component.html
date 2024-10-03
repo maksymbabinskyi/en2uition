@@ -1,0 +1,170 @@
+
+<div class="b-section" *ngIf="page === 1">
+  <div class="-ol-container -ol-container_sm_2">
+
+    <div class="b-heading">
+      <h1 class="b-heading__title b-heading__title_last">Profile Details</h1>
+    </div>
+
+    <div class="b-user-data-box">
+      <div class="b-user-data-box__inner">
+        <div class="b-user-data-box__part">
+          <div class="b-user-data-box__item">
+            <img class="b-user-data-box__photo" alt="" [src]="photoUrl | safe:'resourceUrl'">
+          </div>
+        </div>
+        <div class="b-user-data-box__part">
+          <div class="b-user-data-box__item">
+            <h4 class="b-user-data-box__heading">Email</h4>
+            <p class="b-user-data-box__text">{{email}}</p>
+          </div>
+          <div class="b-user-data-box__item">
+            <button class="-ol-btn -ol-btn_w_fix_md" (click)="file.click()">Upload photo</button>
+            <input type="file" accept="image/*" #file class="d-none" (change)="photoChanged($event)">
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="b-user-data-box">
+      <div class="b-user-data-box__inner">
+        <div class="b-user-data-box__part">
+          <div class="b-user-data-box__item">
+            <h3 class="b-user-data-box__title">Your status</h3>
+          </div>
+        </div>
+        <div class="b-user-data-box__part">
+          <div class="b-user-data-box__item">
+            <h4 class="b-user-data-box__heading">{{selectedStatus === 0 ? 'No status' : (selectedStatus === 1 || selectedStatus === 2) ? 'In relationship' : 'Single'}}</h4>
+            <p class="b-user-data-box__text">This status allows to analyze both CURRENT and PAST relationships</p>
+          </div>
+          <div class="b-user-data-box__item">
+            <button class="-ol-btn -ol-btn_outline -ol-btn_w_fix_md" (click)="page = 2">Change</button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="b-user-data-box">
+      <div class="b-user-data-box__inner">
+        <div class="b-user-data-box__part">
+          <div class="b-user-data-box__item">
+            <h3 class="b-user-data-box__title">Account name</h3>
+          </div>
+        </div>
+        <div class="b-user-data-box__part">
+          <div class="b-user-data-box__item">
+            <h4 class="b-user-data-box__heading">{{profile?.name || 'No Name'}}</h4>
+            <p class="b-user-data-box__text">This name is visible when you log in to en2uition (optional)</p>
+          </div>
+          <div class="b-user-data-box__item">
+            <button class="-ol-btn -ol-btn_outline -ol-btn_w_fix_md" (click)="changeName()">Change</button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="b-user-data-box">
+      <div class="b-user-data-box__inner">
+        <div class="b-user-data-box__part">
+          <div class="b-user-data-box__item">
+            <h3 class="b-user-data-box__title">Current password</h3>
+          </div>
+        </div>
+        <div class="b-user-data-box__part">
+          <div class="b-user-data-box__item">
+            <h4 class="b-user-data-box__heading b-user-data-box__heading_last">●●●●●●●●</h4>
+          </div>
+          <div class="b-user-data-box__item">
+            <button class="-ol-btn -ol-btn_outline -ol-btn_w_fix_md" (click)="changePassword()">Change</button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="b-user-data-box">
+      <div class="b-user-data-box__inner">
+        <div class="b-user-data-box__part">
+          <div class="b-user-data-box__item">
+            <h3 class="b-user-data-box__title">Current plan</h3>
+          </div>
+        </div>
+        <div class="b-user-data-box__part">
+          <div class="b-user-data-box__item">
+            <h4 class="b-user-data-box__heading">Basic - Free</h4>
+            <p class="b-user-data-box__text">Proin tortor mauris, faucibus a rhoncus sit amet, semper sed velit. Nulla ac mauris nec risus molestie iaculis. Sed malesuada mi lacus, eu iaculis diam fermentum non. Aliquam eleifend interdum purus sed facilisis.</p>
+          </div>
+          <div class="b-user-data-box__item">
+            <button class="-ol-btn -ol-btn_outline -ol-btn_w_fix_md" [routerLink]="['/pricing']">Upgrade plan</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="b-section" *ngIf="page === 2">
+  <div class="-ol-container -ol-container_sm_2">
+    <div class="b-status-box">
+      <div class="b-status-box__header">
+        <h2 class="b-status-box__header-text">Set Your Status</h2>
+      </div>
+      <div class="b-status-box__tabs">
+        <button class="b-status-box__tab" [class.b-status-box__tab_active]="selectedTab === 0" (click)="selectedTab = 0">
+          <span class="b-status-box__tab-inner">
+            <span class="b-status-box__tab-text">In Relationship</span>
+          </span>
+        </button>
+        <button class="b-status-box__tab" [class.b-status-box__tab_active]="selectedTab === 1" (click)="selectedTab = 1">
+          <span class="b-status-box__tab-inner">
+            <span class="b-status-box__tab-text">Single</span>
+          </span>
+        </button>
+      </div>
+      <div class="b-status-box__content" *ngIf="selectedTab === -1">
+        <h3 class="b-status-box__content-heading">The difference between "In Relationship" and "Single" statuses</h3>
+        <p class="b-status-box__content-text"><span class="b-status-box__content-text_bold">In Relationship</span> Ut elementum, sem id dapibus cursus, augue ipsum ultrices augue, sed luctus dolor ligula a libero. Mauris ut lorem mi. Nunc lobortis, est non laoreet suscipit, dui orci molestie urna, ac hendrerit odio ex rutrum lectus. Vivamus quis tellus nec odio mollis faucibus nec vel odio. Cras dignissim ac est eu rhoncus. In hac habitasse platea dictumst.</p>
+        <p class="b-status-box__content-text"><span class="b-status-box__content-text_bold">Single</span> Nulla consequat, erat a mollis aliquam, augue libero suscipit ante, vitae hendrerit nibh neque ac lacus. Aenean sed odio id erat interdum tempor quis ut risus. Suspendisse pharetra leo ac justo iaculis, a dictum tellus efficitur. Vivamus vitae pretium mi, et imperdiet libero. Vestibulum blandit lobortis molestie. Aliquam quis eleifend dolor.</p>
+      </div>
+      <div class="b-status-box__answers">
+        <div class="b-status-box__answers-inner" [class._fade_in]="selectedTab === 0" *ngIf="selectedTab === 0">
+          <div class="b-status-box__answers-item" [class.b-status-box__answers-item_active]="selectedStatus === 1" (click)="selectStatus(1)">
+            <div class="b-status-box__answers-main">
+              <img class="b-status-box__answers-img" src="assets/images/profile/InSeriousRelationship.png" alt="">
+              <div class="b-status-box__answers-heading">In Serious Relationship</div>
+              <p class="b-status-box__answers-text"><span class="b-status-box__answers-text_dark">BOTH you AND your partner have expectations for a future with each other.</span> Invest quality time to get to know each other. The thought of losing each other is unbearable.</p>
+            </div>
+          </div>
+          <div class="b-status-box__answers-item" [class.b-status-box__answers-item_active]="selectedStatus === 2" (click)="selectStatus(2)">
+            <div class="b-status-box__answers-main">
+              <img class="b-status-box__answers-img" src="assets/images/profile/InCasualRelationship.png" alt="">
+              <div class="b-status-box__answers-heading">In Casual Relationship</div>
+              <p class="b-status-box__answers-text"><span class="b-status-box__answers-text_dark">AT LEAST ONE of you or your partner has low expectations for a long-term commitment.</span> Does not invest quality time to get to know the other partner. The thought of a break-up does not seem to bother you or your partner.</p>
+            </div>
+          </div>
+        </div>
+        <div class="b-status-box__answers-inner" [class._fade_in]="selectedTab === 1" *ngIf="selectedTab === 1">
+          <div class="b-status-box__answers-item" [class.b-status-box__answers-item_active]="selectedStatus === 3" (click)="selectStatus(3)">
+            <div class="b-status-box__answers-main">
+              <img class="b-status-box__answers-img" src="assets/images/profile/SingleandHavingFun.png" alt="">
+              <div class="b-status-box__answers-heading">Single and Having Fun</div>
+              <p class="b-status-box__answers-text"><span class="b-status-box__answers-text_dark">You are NOT in a serious or casual relationhsip.</span> You may be a serial dater or an occasional one (out of choice). If not dating (out of choice) you have fun with your friends.</p>
+            </div>
+          </div>
+          <div class="b-status-box__answers-item" [class.b-status-box__answers-item_active]="selectedStatus === 4" (click)="selectStatus(4)">
+            <div class="b-status-box__answers-main">
+              <img class="b-status-box__answers-img" src="assets/images/profile/SingleandBored.png" alt="">
+              <div class="b-status-box__answers-heading">Single and Bored</div>
+              <p class="b-status-box__answers-text"><span class="b-status-box__answers-text_dark">You are NOT in a serious or casual relationhsip.</span> You do not have time for an exciting social life. If you have time, may be you are a little too shy.</p>
+            </div>
+          </div>
+        </div>
+        <div class="_text_center">
+          <button class="-ol-btn -ol-btn_w_full_mb" (click)="goRelationship()">Save and add relationship</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<e2-alert [message]="message" (closeAlert)="message = ''" *ngIf="message" type="success"></e2-alert>

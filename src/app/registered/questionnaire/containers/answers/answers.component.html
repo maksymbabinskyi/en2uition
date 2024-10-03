@@ -1,0 +1,120 @@
+<div class="b-section b-section_p_b_none">
+  <div class="-ol-container -ol-container_sm_2">
+
+    <div class="b-heading">
+      <h1 class="b-heading__title b-heading__title_last">Answers to the Questionnaire</h1>
+    </div>
+
+    <div class="b-tabs">
+      <div class="b-tabs__options _none_tb">
+        <div class="b-tabs__options-item">
+          <button class="b-tabs__option b-tabs__option_active">
+            <span class="b-tabs__text">Level 1</span>
+          </button>
+        </div>
+        <div class="b-tabs__options-item">
+          <button class="b-tabs__option" disabled>
+            <span class="b-tabs__text">Level 2</span>
+          </button>
+        </div>
+        <div class="b-tabs__options-item">
+          <button class="b-tabs__option" disabled>
+            <span class="b-tabs__text">Level 3</span>
+          </button>
+        </div>
+        <div class="b-tabs__options-item">
+          <button class="b-tabs__option" disabled>
+            <span class="b-tabs__text">Level 4</span>
+          </button>
+        </div>
+        <div class="b-tabs__options-item">
+          <button class="b-tabs__option" disabled>
+            <span class="b-tabs__text">Level 5</span>
+          </button>
+        </div>
+        <div class="b-tabs__options-item">
+          <button class="b-tabs__option" disabled>
+            <span class="b-tabs__text">Level 6</span>
+          </button>
+        </div>
+      </div>
+      <div class="b-tabs__selector-tb">
+        <div class="b-tabs__selector-tb-inner">
+          <div class="b-tabs__selector-tb-inner-2">
+            <p class="b-tabs__selector-tb-text">Choose Level</p>
+          </div>
+        </div>
+        <div class="b-tabs__options-tb">
+          <div class="b-tabs__options-tb-item">
+            <button class="b-tabs__option-tb b-tabs__option-tb_active">
+              <span class="b-tabs__text-tb">Level 1</span>
+            </button>
+          </div>
+          <div class="b-tabs__options-tb-item">
+            <button class="b-tabs__option-tb">
+              <span class="b-tabs__text-tb">Level 2</span>
+            </button>
+          </div>
+          <div class="b-tabs__options-tb-item">
+            <button class="b-tabs__option-tb">
+              <span class="b-tabs__text-tb">Level 3</span>
+            </button>
+          </div>
+          <div class="b-tabs__options-tb-item">
+            <button class="b-tabs__option-tb" disabled>
+              <span class="b-tabs__text-tb">Level 4</span>
+            </button>
+          </div>
+          <div class="b-tabs__options-tb-item">
+            <button class="b-tabs__option-tb" disabled>
+              <span class="b-tabs__text-tb">Level 5</span>
+            </button>
+          </div>
+          <div class="b-tabs__options-tb-item">
+            <button class="b-tabs__option-tb" disabled>
+              <span class="b-tabs__text-tb">Level 6</span>
+            </button>
+          </div>
+        </div>
+      </div>
+      <div class="b-list-results">
+        <ng-container *ngFor="let question of questions; let index = index">
+          <div class="b-list-results__item" *ngIf="getAnswer(question.id) as answer">
+            <table class="b-list-results__content">
+              <tr class="b-list-results__row">
+                <td class="b-list-results__cell b-list-results__cell_heading">
+                  <h2 class="b-list-results__heading">{{'Question ' + (index + 1) + ':'}}</h2>
+                </td>
+                <td class="b-list-results__cell b-list-results__cell_heading">
+                  <p class="b-list-results__link">
+                    <a [routerLink]="['../', question.questionNumber]" class="b-list-results__link-text">Edit answers</a>
+                  </p>
+                </td>
+              </tr>
+              <tr class="b-list-results__row">
+                <td class="b-list-results__cell">
+                  <h3 class="b-list-results__title">Me:</h3>
+                </td>
+                <td class="b-list-results__cell">
+                  <e2-answer who="me" [question]="question" [answer]="answer"></e2-answer>
+                </td>
+              </tr>
+              <tr class="b-list-results__row" *ngIf="question.optional.mode === 'D'">
+                <td class="b-list-results__cell">
+                  <h3 class="b-list-results__title">My partner:</h3>
+                </td>
+                <td class="b-list-results__cell">
+                  <e2-answer who="partner" [question]="question" [answer]="answer"></e2-answer>
+                </td>
+              </tr>
+            </table>
+          </div>
+        </ng-container>
+      </div>
+    </div>
+
+    <div class="b-loading" *ngIf="loading">
+      <div class="b-loading__icon"></div>
+    </div>
+  </div>
+</div>

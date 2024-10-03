@@ -1,0 +1,25 @@
+<ng-container *ngIf="getQuestionNumber() as questionNumber">
+  <div class="b-questionary__state-inner">
+    <div class="b-questionary__state-content">
+      <input type="checkbox" name="acc-mobile" id="acc-mobile">
+      <div class="b-questionary__state-item b-questionary__state-item_heading">
+        <h2 class="b-questionary__state-heading">Level 1</h2>
+      </div>
+      <div class="e2-accordion e2-bg_gray100 d-lg-none">
+        <hr class="horizontal">
+        <a href="#" class="e2-button e2-text_center e2-bg_white d-block p-4">VIEW / EDIT ANSWERED QUESTIONS</a>
+        <hr class="horizontal">
+        <a href="#" class="e2-button e2-text_center e2-bg_white d-block p-4" disabled>RELATIONSHIP ADVICE</a>
+        <hr class="horizontal">
+      </div>
+  
+      <e2-level-question-slider class="b-questionary__state-item b-questionary__state-item_stretch" [questionNumber]="questionNumber"
+                                (questionNumberChanged)="goToQuestion($event)"></e2-level-question-slider>
+    </div>
+  </div>
+</ng-container>
+
+<router-outlet *ngIf="!isTopicShown"></router-outlet>
+
+<e2-topic *ngIf="isTopicShown" (go)="goToQuestionFromTopic($event)" (close)="isTopicShown = false"></e2-topic>
+

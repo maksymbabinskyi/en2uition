@@ -1,0 +1,15 @@
+<div class=" e2-md-container_lg e2-lg-container_lg px-md-0">
+  <e2-tabs>
+    <e2-tab *ngFor="let level of assessment?.levels; let levelIndex = index" [label]="'Level ' + (levelIndex + 1)">
+      <e2-accordion>
+        <e2-accordion-item *ngFor="let topic of level.topics; let topicIndex = index" [header]="topicIndex">
+          <e2-accordion>
+            <e2-accordion-item *ngFor="let area of topic.areas" [header]="area.label">
+              {{area.assessment ? 'high' : 'low'}}
+            </e2-accordion-item>
+          </e2-accordion>
+        </e2-accordion-item>
+      </e2-accordion>
+    </e2-tab>
+  </e2-tabs>
+</div>

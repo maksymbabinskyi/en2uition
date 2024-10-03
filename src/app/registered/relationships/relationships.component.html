@@ -1,0 +1,139 @@
+
+<div class="b-section">
+  <div class="-ol-container -ol-container_sm_2">
+
+    <div class="b-list-relationship__btn-add">
+      <button class="b-btn-add" routerLink="add">
+        <span class="b-btn-add__icon"></span>
+        <span class="b-btn-add__text">Add Relationship</span>
+      </button>
+    </div>
+
+    <div class="b-list-relationship">
+      <div class="b-list-relationship__inner">
+        <div class="b-list-relationship__item" *ngFor="let relationship of relationships">
+          <div class="b-relationship">
+            <div class="b-relationship__inner">
+              <div class="b-relationship__item">
+                <div class="b-relationship__box b-relationship__box_partner">
+                  <div class="b-relationship__partner-info">
+                    <div class="b-relationship__partner-info-inner">
+                      <div class="b-relationship__partner-info-item">
+                        <img class="b-relationship__partner-photo" [src]="relationship.image?.url | safe:'resourceUrl'" alt="">
+                      </div>
+                      <div class="b-relationship__partner-info-item">
+                        <div class="b-relationship__partner-name">{{relationship.partnerName}}</div>
+                        <div class="b-relationship__partner-state">{{relationship.aging ? 'CURRENT' : 'PAST'}} RELATIONSHIP</div>
+                      </div>
+                    </div>
+                  </div>
+                  <button tabindex="0" class="b-relationship__partner-btn"></button>
+                  <div class="b-relationship__partner-options">
+                    <div class="b-relationship__partner-option">
+                      <button class="b-relationship__partner-option-btn b-relationship__partner-option-btn_upload" (click)="file.click()">
+                        <span class="b-relationship__partner-option-btn-inner">
+                          <span class="b-relationship__partner-option-btn-text">Upload Photo</span>
+                        </span>
+                      </button>
+                      <input type="file" accept="image/*" #file class="d-none" (change)="photoChanged($event, relationship)">
+                    </div>
+                    <div class="b-relationship__partner-option">
+                      <button class="b-relationship__partner-option-btn b-relationship__partner-option-btn_remove_photo" [disabled]="!relationship.image" (click)="removePhoto(relationship)">
+                        <span class="b-relationship__partner-option-btn-inner">
+                          <span class="b-relationship__partner-option-btn-text">Remove Photo</span>
+                        </span>
+                      </button>
+                    </div>
+                    <div class="b-relationship__partner-option">
+                      <button class="b-relationship__partner-option-btn b-relationship__partner-option-btn_change" (click)="changeStatus(relationship)">
+                        <span class="b-relationship__partner-option-btn-inner">
+                          <span class="b-relationship__partner-option-btn-text">Change Status to {{relationship.aging ? 'Past' : 'Current'}}</span>
+                        </span>
+                      </button>
+                    </div>
+                    <div class="b-relationship__partner-option">
+                      <button class="b-relationship__partner-option-btn b-relationship__partner-option-btn_remove" (click)="removeRelationship(relationship)">
+                        <span class="b-relationship__partner-option-btn-inner">
+                          <span class="b-relationship__partner-option-btn-text">Remove Relationship</span>
+                        </span>
+                      </button>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="b-relationship__item b-relationship__item_stretch">
+                <div class="b-relationship__sections">
+                  <div class="b-relationship__section">
+                    <div class="b-relationship__box">
+                      <div class="b-relationship__stats">
+                        <div class="b-relationship__stat">
+                          <div class="b-relationship__stat-number">{{relationship.levelsCompleted}}</div>
+                          <h3 class="b-relationship__stat-heading">Levels<br>Completed</h3>
+                        </div>
+                        <div class="b-relationship__stat">
+                          <div class="b-relationship__stat-number">{{relationship.answeredQuestions}}</div>
+                          <h3 class="b-relationship__stat-heading">Answered<br>Questions</h3>
+                        </div>
+                        <div class="b-relationship__stat">
+                          <div class="b-relationship__stat-number b-relationship__stat-number_highlighted">{{relationship.unAnsweredQuestions}}</div>
+                          <h3 class="b-relationship__stat-heading">Unaswered<br>Questions</h3>
+                        </div>
+                      </div>
+                      <div class="b-relationship__options">
+                        <div class="b-relationship__option b-relationship__option_main">
+                          <a [routerLink]="[relationship.id, 'questionnaire', 1]" *ngIf="!relationship.completed" class="b-relationship__option-btn b-relationship__option-btn_active">
+                            <span class="b-relationship__option-btn-text">{{relationship.answeredQuestions === 0 ? 'Start level 1' : 'Continue level 1'}}</span>
+                          </a>
+                          <div class="b-relationship__option-completed" *ngIf="relationship.completed">
+                            <div class="b-relationship__option-completed-inner">
+                              <div class="b-relationship__option-completed-text">Completed</div>
+                            </div>
+                          </div>
+                        </div>
+                        <div class="b-relationship__option">
+                          <button class="b-relationship__option-btn" [routerLink]="[relationship.id, 'questionnaire', 'answers']">
+                            <span class="b-relationship__option-btn-text">View / Edit Your<br>Answers</span>
+                          </button>
+                        </div>
+                        <div class="b-relationship__option">
+                          <button class="b-relationship__option-btn" [routerLink]="'advices'" [disabled]="relationship.answeredQuestions === 0">
+                            <span class="b-relationship__option-btn-text">Relationship<br>advices ({{relationship.relationshipAdvices}})</span>
+                          </button>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="b-relationship__section">
+                    <div class="b-relationship__box">
+                      <div class="b-relationship__assessment-header" [class.b-relationship__assessment-header_disabled]="!relationship.completed">
+                        <h3 class="b-relationship__assessment-heading">Advice and Assessments</h3>
+                        <p class="b-relationship__assessment-subheading">After completing level 6</p>
+                      </div>
+                      <div class="b-relationship__assessment-options">
+                        <div class="b-relationship__assessment-option">
+                          <button class="b-relationship__assessment-option-btn" disabled>
+                            <span class="b-relationship__assessment-option-btn-text">Assessment on 24 Relationship Areas</span>
+                          </button>
+                        </div>
+                        <div class="b-relationship__assessment-option">
+                          <button class="b-relationship__assessment-option-btn" disabled>
+                            <span class="b-relationship__assessment-option-btn-text">Assessment Based on Triangular Theory</span>
+                          </button>
+                        </div>
+                        <div class="b-relationship__assessment-option">
+                          <button class="b-relationship__assessment-option-btn" routerLink="/relationships/advice" disabled>
+                            <span class="b-relationship__assessment-option-btn-text">Advice Based on the Triangular Theory</span>
+                          </button>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

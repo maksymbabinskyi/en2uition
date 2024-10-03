@@ -1,0 +1,38 @@
+@import "variables";
+
+:host(.e2-triangle_slider){
+  display: block;
+  position: relative;
+  @media screen and (max-width: map-get($grid-breakpoints, md) - 1){
+    max-width: 280px;
+  }
+  .e2-slider{
+    &_text{
+      position: absolute;
+      &.top{
+        bottom: 100%;
+        left: 50%;
+        transform: translateX(-50%);
+        padding-bottom: 30px;
+      }
+      &.left{
+        top: 100%;
+        left: -10px;
+      }
+      &.right{
+        top: 100%;
+        right: -10px;
+      }
+      @media screen and (min-width: map-get($grid-breakpoints, md)){
+        &.left{
+          top: 100%;
+          left: -20px;
+        }
+        &.right{
+          top: 100%;
+          right: -20px;
+        } 
+      }
+    }
+  }
+}

@@ -1,0 +1,64 @@
+@import "variables";
+
+:host{
+  &:not(:last-of-type){
+    display: block;
+    margin-bottom: 20px;
+  }
+}
+
+.e2-card{
+  &_item{
+    position: relative;
+    // min-width: 320px;
+    padding: 25px 15px 25px;
+    border: 2px solid transparent;
+    @media screen and (min-width: map-get($grid-breakpoints, lg)){
+      min-height: 420px;
+      padding: 25px 100px 25px;      
+    }
+    &--current{
+      border-color: $color-primary_500;
+  }
+
+    &-image{
+      max-width: 100px;
+      @media screen and (min-width: map-get($grid-breakpoints, sm)){
+        max-width: 120px;
+      }
+    }
+
+    &-tags{
+      span{
+        position: relative;
+        &::after{
+          content: '; ';
+          padding-right: 1px;
+        }
+      }
+    }
+
+    li{
+      padding: 15px 0 10px;
+    }
+
+    input{
+      visibility: hidden;
+      position: absolute;
+      left: -9999px;
+    }
+    @media screen and (max-width: map-get($grid-breakpoints, sm) - 1){
+      &-description{
+        display: none;
+      }
+      input:checked + label{
+        .icon-chevron{
+          transform: rotate(.5turn);
+        }
+        & + .e2-card_item-description{
+          display: block;
+        }
+      } 
+    }
+  }
+}

@@ -1,0 +1,51 @@
+<div class="b-section">
+  <div class="-ol-container -ol-container_xs">
+
+    <div class="b-heading">
+      <h1 class="b-heading__title b-heading__title_last">Add Relationship</h1>
+    </div>
+
+    <form [formGroup]="form">
+      <div class="b-add-relationship">
+        <div class="b-add-relationship__options">
+          <div class="b-add-relationship__option">
+            <div class="b-add-relationship__option-radio -ol-radio -ol-radio_lg">
+              <input type="radio" id="rel-type-2" [value]="1" class="-ol-radio__input" formControlName="aging">
+              <div class="-ol-radio__trigger"></div>
+            </div>
+            <p class="b-add-relationship__option-text"><span class="b-add-relationship__option-text_major">Current</span><br>Relationship</p>
+          </div>
+          <div class="b-add-relationship__option">
+            <div class="b-add-relationship__option-radio -ol-radio -ol-radio_lg">
+              <input type="radio" id="rel-type-1" [value]="0" class="-ol-radio__input" formControlName="aging">
+              <div class="-ol-radio__trigger"></div>
+            </div>
+            <p class="b-add-relationship__option-text"><span class="b-add-relationship__option-text_major">Past</span><br>Relationship</p>
+          </div>
+        </div>
+        <div class="b-add-relationship__content">
+          <div class="b-add-relationship__content-inner">
+            <div class="b-edit-photo">
+              <img class="b-edit-photo__photo" [src]="previewURL | safe:'resourceUrl'" alt="">
+              <div class="b-edit-photo__btns">
+                <div class="b-edit-photo__btns-item">
+                  <button class="b-edit-photo__btn b-edit-photo__btn_change" (click)="file.click()"><span class="b-edit-photo__btn-text">Change photo</span></button>
+                  <input type="file" accept="image/*" #file class="d-none" (change)="photoChanged($event)">
+                </div>
+                <div class="b-edit-photo__btns-item">
+                  <button class="b-edit-photo__btn b-edit-photo__btn_remove" [disabled]="!previewURL" (click)="removePhoto()"><span class="b-edit-photo__btn-text">Remove photo</span></button>
+                </div>
+              </div>
+            </div>
+            <div class="-ol-row-input">
+              <div class="-ol-input-wrap">
+                <input type="text" class="-ol-input" placeholder="Your Partner's Name" formControlName="partnerName">
+              </div>
+            </div>
+            <button class="-ol-btn _full_w" (click)="create()">Create relationship</button>
+          </div>
+        </div>
+      </div>
+    </form>
+  </div>
+</div>

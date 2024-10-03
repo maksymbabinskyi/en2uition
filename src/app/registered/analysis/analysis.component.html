@@ -1,0 +1,42 @@
+<div class="b-section">
+  <div class="-ol-container -ol-container_xs">
+
+    <div class="b-heading">
+      <h1 class="b-heading__title b-heading__title_last">Congratulations.<br>You have completed Level 1</h1>
+    </div>
+
+    <div class="b-partner-comparison">
+      <div class="b-partner-comparison__main">
+        <div class="b-partner-comparison__inner">
+          <div class="b-partner-comparison__item b-partner-comparison__item_person">
+            <div class="b-partner-comparison__person">
+              <img [src]="img" alt="" class="b-partner-comparison__person-photo">
+              <div class="b-partner-comparison__person-name">You</div>
+            </div>
+          </div>
+          <div class="b-partner-comparison__item b-partner-comparison__item_btns">
+            <div class="b-partner-comparison__btns">
+              <button class="-ol-btn b-partner-comparison__btn" disabled>Start answering level 2</button>
+              <button class="-ol-btn -ol-btn_outline b-partner-comparison__btn" routerLink="advice">View relationship
+                advice
+              </button>
+              <button class="-ol-btn -ol-btn_outline b-partner-comparison__btn"
+                      [routerLink]="['/relationships', relationshipId, 'questionnaire', 'answers']">View/Edit your
+                answers
+              </button>
+            </div>
+          </div>
+          <div class="b-partner-comparison__item b-partner-comparison__item_person">
+            <div class="b-partner-comparison__person">
+              <div class="b-partner-comparison__person-photo"
+                   [style.background-image]="'url(' + relationship?.image?.url + ')'"></div>
+              <div class="b-partner-comparison__person-name">{{relationship?.partnerName}}</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <p class="b-partner-comparison__subtext _text_center">Now you can start Level 2 Questionnaire, look through
+      Relationship Advice to Level 1 or read/edit your aswers to Level 1 questions</p>
+  </div>
+</div>

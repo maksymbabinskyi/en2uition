@@ -1,0 +1,28 @@
+<article class="e2-card_item e2-bg_white" [class.e2-card_item--current]="current">
+  <input type="checkbox" [id]="id" name="cards" class="d-md-none">
+  <label [attr.for]="id" class="d-flex align-items-center pb-md-3">
+    <div class="e2-card_item-image flex-shrink-0 mr-2 mr-sm-5">
+      <img [src]="imageUrl" alt="" class="w-100">
+    </div>
+
+    <section class="d-flex flex-column justify-content-center flex-grow-1 flex-sm-grow-0">
+      <h1 class="e2-card_item-header e2-color_text-parimary e2-lh_1 e2-h3" [innerHTML]="header"></h1>
+      <p class="e2-text_uppercase e2-color_text-secondary e2-md-h8 d-flex align-items-center py-2"><span [innerHTML]="subheader"></span><span class="icon-chevron e2-icon_size-14 ml-2 d-sm-none"></span></p>
+      <a routerLink="/sign-up" class="e2-button e2-button--primary px-1 px-sm-4" *ngIf="buttonText">{{buttonText}}</a>
+    </section>
+  </label>
+
+  <div class="e2-card_item-description" *ngIf="questions">
+    <ol class="e2-alphabeticalList e2-color_text-parimary">
+      <li><span class="e2-fw_semibold">Questions 1-15</span>: <span [innerHTML]="questions['1_15']"></span></li>
+      <li><span class="e2-fw_semibold">Questions 16-30</span>: <span [innerHTML]="questions['16_30']"></span></li>
+      <li><span class="e2-fw_semibold">Questions 31-45</span>: <span [innerHTML]="questions['31_45']"></span></li>
+      <li><span class="e2-fw_semibold">Questions 46-60</span>: <span [innerHTML]="questions['46_60']"></span></li>
+    </ol>
+  </div>
+
+  <div class="e2-card_item-description" *ngIf="description">
+    <p class="py-2" [innerHTML]="description"></p>
+    <p class="e2-card_item-tags py-2 e2-h7 e2-lg-h7"><i [innerHTML]="tags"></i></p>
+  </div>
+</article>

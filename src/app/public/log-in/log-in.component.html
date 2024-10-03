@@ -1,0 +1,39 @@
+<div class="b-section">
+  <div class="-ol-container -ol-container_xs">
+
+    <div class="b-heading">
+      <h1 class="b-heading__title b-heading__title_last">{{'Log In' | translate}}</h1>
+    </div>
+
+    <form class="e2-form e2-li e2-log-in-form" [formGroup]="form">
+      <div class="b-login">
+        <div class="b-login__form">
+          <div class="-ol-row-input -ol-row-input_m_b_xs">
+            <div class="-ol-input-wrap">
+              <input type="email" class="-ol-input" placeholder="{{'Your email' | translate}}" autocomplete="email" formControlName="email">
+            </div>
+          </div>
+          <div class="-ol-row-input">
+            <div class="-ol-input-wrap -ol-input-wrap_visible">
+              <input [type]="showPassword ? 'text' : 'password'" placeholder="{{'Your password' | translate}}" class="-ol-input -ol-input_with_visibility_switcher" autocomplete="current-password" formControlName="password">
+              <button class="b-btn-visibility b-btn-visibility_input" *ngIf="showPassword" (click)="showPassword = !showPassword"></button>
+              <button class="b-btn-hidden b-btn-hidden_input" [style.display]="'inline'" *ngIf="!showPassword" (click)="showPassword = !showPassword"></button>
+            </div>
+          </div>
+          <button class="-ol-btn _full_w" (click)="signin()" [disabled]="form.invalid">{{'Sign In' | translate}}</button>
+        </div>
+        <p class="b-login__recovery"><a class="-ol-link" routerLink="/forgot-password">{{'FORGOT PASSWORD?' | translate}}</a></p>
+        <div class="b-login__bottom b-login__bottom_last">
+          <div class="b-login__bottom-item">
+            <p class="b-login__text b-login__text_last">{{"Don't have an account?" | translate}}</p>
+          </div>
+          <div class="b-login__bottom-item">
+            <p class="b-login__text b-login__text_last"><a routerLink="/sign-up" class="b-login__text_link -ol-link">{{'Sign Up' | translate}}</a></p>
+          </div>
+        </div>
+      </div>
+    </form>
+  </div>
+</div>
+
+<e2-alert [message]="error" (closeAlert)="error = ''" *ngIf="error" type="failed"></e2-alert>

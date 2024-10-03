@@ -1,0 +1,36 @@
+<h1 e2-dialog-title>Log In</h1>
+
+<form class="e2-form px-5 mx-5" [formGroup]="form">
+  <div class="e2-form_field">
+    <input type="email" class="e2-input w-100" placeholder="Email Address" autocomplete="email" formControlName="email">
+  </div>
+  <div class="e2-form_field">
+    <div class="e2-password_field">
+      <input [type]="showPassword ? 'text' : 'password'" class="e2-input w-100" placeholder="Password"
+             autocomplete="current-password"
+             formControlName="password">
+      <div class="e2-password_field-icons e2-password-toggle d-flex justify-content-center align-items-center"
+           (click)="showPassword = !showPassword">
+        <div><img src="assets/images/icons/password-show.svg" alt="" hidden class="icon icon-show"></div>
+        <div><img src="assets/images/icons/password-hide.svg" alt="" class="icon icon-hide"></div>
+      </div>
+    </div>
+  </div>
+
+  <div [style.color]="'red'">{{error}}</div>
+
+  <div class="e2-form_field">
+    <button class="e2-button e2-button--primary w-100" (click)="signin()" [disabled]="form.invalid">Sign In</button>
+  </div>
+
+  <div class="e2-form_field e2-text_center pt-3">
+    <a href="#" class="e2-link e2-text_uppercase e2-h8">FORGOT PASSWORD?</a>
+  </div>
+
+  <div class="e2-form_field e2-text_center e2-h8">
+    <p>Don't have an account? <span class="px-2"></span> <a routerLink="/sign-up"
+                                                            class="e2-link e2-text_uppercase e2-fw_semibold"
+                                                            (click)="close()">SIGN
+      UP</a></p>
+  </div>
+</form>

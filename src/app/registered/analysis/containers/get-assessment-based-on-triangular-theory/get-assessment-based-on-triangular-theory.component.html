@@ -1,0 +1,98 @@
+<e2-header text="Your Assessment Based on Triangular Theory"></e2-header>
+
+<div class="e2-lg-container_md d-md-flex d-none d pb-4">
+
+  <div class="d-flex flex-column align-items-center justify-content-center w-50">
+    <div class="e2-avatar e2-avatar--lg mb-3">
+      <img src="assets/images/user_52x52.jpg" alt="">
+    </div>
+    <p class="e2-lh_secondary e2-md-h6">You</p>
+    <p class="e2-lh_1 e2-md-h6 d-none d-lg-block">Love Participation</p>
+  </div>
+  <div class="d-flex flex-column align-items-center justify-content-center w-50">
+    <div class="e2-avatar e2-avatar--lg mb-3">
+      <img src="assets/images/user_52x52.jpg" alt="">
+    </div>
+    <p class="e2-lh_secondary e2-md-h6">Matthew McConaughey's</p>
+    <p class="e2-lh_1 e2-md-h6 d-none d-lg-block">Love Participation</p>
+  </div>
+</div>
+
+<div class="e2-md-container_lg e2-lg-container_md" *ngIf="assessment">
+  <div class="d-md-flex e2-bg_gray100 py-3">
+    <div class="col-md-6 d-flex flex-column align-items-center">
+      <div class="d-flex flex-column align-items-center justify-content-center pt-4 pb-2 d-md-none">
+        <div class="e2-avatar e2-avatar--lg mb-3">
+          <img src="assets/images/user_52x52.jpg" alt="">
+        </div>
+        <p class="e2-lh_secondary e2-md-h6">You</p>
+        <p class="e2-lh_1 e2-md-h6">Love Participation</p>
+      </div>
+
+      <e2-triangular-score-slider [disabled]="true"
+                                  (update)="yourScore = $event"
+                                  [intimacyValue]="assessment.meIntimacy"
+                                  [commitmentValue]="assessment.meCommitment"
+                                  [passionValue]="assessment.mePassion"></e2-triangular-score-slider>
+
+      <div class="w-100 px-4 py-4">
+        <div class="d-flex justify-content-between py-3">
+          <span>Passion:</span>
+          <span>{{assessment.mePassion}}</span>
+        </div>
+        <hr class="horizontal">
+        <div class="d-flex justify-content-between py-3">
+          <span>Intimacy:</span>
+          <span>{{assessment.meIntimacy}}</span>
+        </div>
+        <hr class="horizontal">
+
+        <div class="d-flex justify-content-between py-3">
+          <span>Commitment:</span>
+          <span>{{assessment.meCommitment}}</span>
+        </div>
+        <hr class="horizontal">
+      </div>
+    </div>
+
+    <hr class="horizontal d-md-none mt-4">
+
+    <div class="col-md-6 d-flex flex-column align-items-center">
+      <div class="d-flex flex-column align-items-center justify-content-center pt-4 pb-2 d-md-none">
+        <div class="e2-avatar e2-avatar--lg mb-3">
+          <img src="assets/images/user_52x52.jpg" alt="">
+        </div>
+        <p class="e2-lh_secondary e2-md-h6">Matthew McConaughey's</p>
+        <p class="e2-lh_1 e2-md-h6">Love Participation</p>
+      </div>
+
+      <e2-triangular-score-slider [disabled]="true"
+                                  (update)="partnerScore = $event"
+                                  [intimacyValue]="assessment.partnerIntimacy"
+                                  [commitmentValue]="assessment.partnerCommitment"
+                                  [passionValue]="assessment.partnerPassion"></e2-triangular-score-slider>
+
+      <div class="w-100 px-4 py-4">
+        <div class="d-flex justify-content-between py-3">
+          <span>Passion:</span>
+          <span>{{assessment.partnerPassion}}</span>
+        </div>
+        <hr class="horizontal">
+        <div class="d-flex justify-content-between py-3">
+          <span>Intimacy:</span>
+          <span>{{assessment.partnerIntimacy}}</span>
+        </div>
+        <hr class="horizontal">
+
+        <div class="d-flex justify-content-between py-3">
+          <span>Commitment:</span>
+          <span>{{assessment.partnerCommitment}}</span>
+        </div>
+        <hr class="horizontal">
+      </div>
+
+    </div>
+  </div>
+</div>
+
+<e2-triangular-assessment #triangularAssessment></e2-triangular-assessment>

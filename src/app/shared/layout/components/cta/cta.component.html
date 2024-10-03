@@ -1,0 +1,91 @@
+<div class="e2-md-container_sm e2-lg-container_sm" [hidden]="hiddenArea">
+  <div class="e2-main_cta d-flex flex-column justify-content-center align-items-center py-4">
+    <h3 class="e2-mainCta_header e2-color_text-secondary e2-text_center e2-h3 pt-4" *ngIf="header"
+        [innerHTML]="header"></h3>
+    <p class="e2-text_center e2-h6 pt-4" *ngIf="text" [innerHTML]="text"></p>
+    <div class="e2-text_center pt-4" *ngIf="buttonText">
+      <a [routerLink]="link" class="e2-button e2-button--primary e2-mainCta_button">{{buttonText}}</a>
+    </div>
+  </div>
+
+  <!-- <ng-container *ngIf="article1 || article2 || article3 || article4 || article5 || article6 || article7">
+    <hr class="horizontal">
+
+    <div class="d-md-flex flex-grow-1 justify-content-between pt-5" [class.flex-row-reverse]="reverse" [class.flex-wrap]="flexWrap">
+      <article class="e2-text_article e2-text_article mb-4" *ngIf="article1">
+        <a routerLink="/how-it-works/the-en2uition-approach" class="e2-link d-block e2-fw_semibold e2-h5 e2-lg-h4 mb-2 mb-md-4">The
+          en2uition
+          Approach</a>
+        <p class="e2-h7 e2-lg-h7">The novelty in our approach is that we have removed the human counselor from the whole process of counseling.
+          However, this does not mean that the counseling you will get here was not written by human counselors. Every
+          single...</p>
+      </article>
+
+      <article class="e2-text_article e2-text_article mb-4" *ngIf="article2">
+        <a routerLink="/how-it-works/the-process" class="e2-link d-block e2-fw_semibold e2-h5 e2-lg-h4 mb-2 mb-md-4">The Process</a>
+        <p class="e2-h7 e2-lg-h7">Just like when you visit a human counselor, we will ask you a lot of questions in order to understand you,
+          your partner and how you do your relationship. There is no magic recipe that can be used to ask you 5 or 10
+          questions and be able to figure...</p>
+      </article>
+
+      <article class="e2-text_article e2-text_article mb-4" *ngIf="article3">
+        <a routerLink="/how-it-works/psychology-background" class="e2-link d-block e2-fw_semibold e2-h5 e2-lg-h4 mb-2 mb-md-4">Psychology
+          Background</a>
+        <p class="e2-h7 e2-lg-h7">The renowned psychologist Robert Sternberg argues that what we call ‘love’ in everyday life is a very vague
+          term that can be very confusing at times. What do we mean by ‘love’? What do we mean when we say to a partner
+          ‘I love you’? It...</p>
+      </article>
+
+      <article class="e2-text_article e2-text_article mb-4" *ngIf="article4">
+        <a routerLink="/how-it-works/triangular-theory-of-love" class="e2-link d-block e2-fw_semibold e2-h5 e2-lg-h4 mb-2 mb-md-4">Explore
+          the
+          Triangular<br>Theory of Love</a>
+        <p class="e2-h7 e2-lg-h7">After we determine your participation types we will provide you with a description of the current status of
+          your relationship. This description is based on the connection you and your partner have, the power balance
+          between the two of you and...</p>
+      </article>
+
+      <article class="e2-text_article e2-text_article mb-4" *ngIf="article5">
+        <a routerLink="/how-it-works/8-participation-types" class="e2-link d-block e2-fw_semibold e2-h5 e2-lg-h4 mb-2 mb-md-4">Explore
+          the
+          Love-<br>Participation Types</a>
+        <p class="e2-h7 e2-lg-h7">After we determine your participation types we will provide you with a description of the current status of
+          your relationship. This description is based on the connection you and your partner have, the power balance
+          between the two of you and...</p>
+      </article>
+
+      <article class="e2-text_article e2-text_article mb-4" *ngIf="article6">
+        <a routerLink="/how-it-works/get-assessment-on-24-relationship-areas"
+           class="e2-link d-block e2-fw_semibold e2-h5 e2-lg-h4 mb-2 mb-md-4">Get Assessment Based on<br>24 Relationship Areas</a>
+        <p class="e2-h7 e2-lg-h7">An assessment about how you and your partner perform in 24 important areas of your relationship. Based on
+          your and your partner’s performance levels (for each one of these 24 important areas) you will receive
+          analyses and suggestions...</p>
+      </article>
+
+      <article class="e2-text_article e2-text_article mb-4" *ngIf="article7">
+        <a routerLink="/how-it-works/get-assessment-based-on-triangular-theory"
+           class="e2-link d-block e2-fw_semibold e2-h5 e2-lg-h4 mb-2 mb-md-4">Get Assessment Based on<br>Triangular Theory of Love</a>
+        <p class="e2-h7 e2-lg-h7">After you answer all 6 levels, we will provide you with an analysis of the problems of your relationship,
+          discussion about whether these problems can be solved and also discussion about what it takes to solve them.
+          In addition to that we will also...</p>
+      </article>
+
+      <article class="e2-text_article e2-text_article mb-4" *ngIf="article8">
+        <a routerLink="/how-it-works/get-advice-based-on-triangular-theory"
+           class="e2-link d-block e2-fw_semibold e2-h5 e2-lg-h4 mb-2 mb-md-4">Get
+          Advice Based on<br>Triangular Theory of Love</a>
+        <p class="e2-h7 e2-lg-h7">After you answer all 6 levels, we will provide you with an analysis of the problems of your relationship,
+          discussion about whether these problems can be solved and also discussion about what it takes to solve them.
+          In addition to that we will also...</p>
+      </article>
+
+      <article class="e2-text_article e2-text_article mb-4" *ngIf="article9">
+        <a routerLink="/how-it-works/360-degree-questionnaire" class="e2-link d-block e2-fw_semibold e2-h5 e2-lg-h4 mb-2 mb-md-4">Explore
+          en2uition 360-degree <br>Questionnaire</a>
+        <p class="e2-h7 e2-lg-h7">The en2uition 360-degree questionnaire is designed to analyze all aspects of your romantic relationship. Due
+          to the content and length of the questionnaire we split it into 6 levels. Each level consists of 60
+          questions...</p>
+      </article>
+    </div>
+  </ng-container> -->
+</div>

@@ -1,0 +1,74 @@
+<div class="b-box" *ngIf="!hidden">
+  <div class="b-box__content _brd_b">
+    <div class="b-triangular-theory-list b-triangular-theory-list_style_2">
+      <div class="b-triangular-theory-list__item">
+        <h2 class="b-triangular-theory-list__heading-major">You Love Participation</h2>
+        <div class="b-triangular-theory-list__header">
+          <div class="b-triangular-theory-list__icon" [style.background-image]="'url(\'' + yourTypeOfLove?.imageUrl + '\')'"></div>
+          <a [routerLink]="['./love-participation-types']" class="b-triangular-theory-list__heading">{{yourTypeOfLove?.title}}</a>
+          <ul class="b-triangular-theory-list__list">
+            <li class="b-triangular-theory-list__list-item">
+              <p class="b-triangular-theory-list__list-text">{{yourTypeOfLove?.tags[0]}} + {{yourTypeOfLove?.tags[1]}}<br>+ {{yourTypeOfLove?.tags[2]}}</p>
+            </li>
+          </ul>
+        </div>
+        <div class="l-flex l-flex_center _only_flex_mb">
+          <button class="-ol-link">Details</button>
+        </div>
+        <p class="b-triangular-theory-list__text _none_mb">{{yourTypeOfLove?.text}}</p>
+      </div>
+      <div class="b-triangular-theory-list__item">
+        <h2 class="b-triangular-theory-list__heading-major">You Partner's Love Participation</h2>
+        <div class="b-triangular-theory-list__header">
+          <div class="b-triangular-theory-list__icon" [style.background-image]="'url(\'' + partnerTypeOfLove?.imageUrl + '\')'"></div>
+          <a [routerLink]="['./love-participation-types']" class="b-triangular-theory-list__heading">{{partnerTypeOfLove?.title}}</a>
+
+          <ul class="b-triangular-theory-list__list">
+            <li class="b-triangular-theory-list__list-item">
+              <p class="b-triangular-theory-list__list-text">{{partnerTypeOfLove?.tags[0]}} + {{partnerTypeOfLove?.tags[1]}}<br>+ {{partnerTypeOfLove?.tags[2]}}</p>
+            </li>
+          </ul>
+        </div>
+        <div class="l-flex l-flex_center _only_flex_mb">
+          <button class="-ol-link">Details</button>
+        </div>
+        <p class="b-triangular-theory-list__text _none_mb">{{partnerTypeOfLove?.text}}</p>
+      </div>
+    </div>
+  </div>
+  <div class="b-tabs__options _none_mb">
+    <div class="b-tabs__options-item">
+      <button class="b-tabs__option" [class.b-tabs__option_active]="tab === 0" (click)="tab = 0">
+        <span class="b-tabs__text">Connection</span>
+      </button>
+    </div>
+    <div class="b-tabs__options-item">
+      <button class="b-tabs__option" [class.b-tabs__option_active]="tab === 1" (click)="tab = 1">
+        <span class="b-tabs__text">Power Balance</span>
+      </button>
+    </div>
+    <div class="b-tabs__options-item">
+      <button class="b-tabs__option" [class.b-tabs__option_active]="tab === 2" (click)="tab = 2">
+        <span class="b-tabs__text">Breakability</span>
+      </button>
+    </div>
+  </div>
+  <div class="b-tab-mb" [class.b-tab-mb_active]="tab === 0" (click)="tab = 0">
+    <div class="b-tab-mb__text">Connection</div>
+  </div>
+  <div class="b-tab-mb" [class.b-tab-mb_active]="tab === 1" (click)="tab = 1">
+    <div class="b-tab-mb__text">Power Balance</div>
+  </div>
+  <div class="b-tab-mb" [class.b-tab-mb_active]="tab === 2" (click)="tab = 2">
+    <div class="b-tab-mb__text">Breakability</div>
+  </div>
+  <div class="b-box__content" *ngIf="tab === 0">
+    <p class="b-text b-text_sm" [class.b-text_last]="i === assessment?.connection.length - 1" *ngFor="let connectionParagraph of assessment?.connection;let i = index;">{{connectionParagraph}}</p>
+  </div>
+  <div class="b-box__content" *ngIf="tab === 1">
+    <p class="b-text b-text_sm" [class.b-text_last]="i === assessment?.power_balance.length - 1" *ngFor="let powerParagraph of assessment?.power_balance;let i = index;">{{powerParagraph}}</p>
+  </div>
+  <div class="b-box__content" *ngIf="tab === 2">
+    <p class="b-text b-text_sm" [class.b-text_last]="i === assessment?.breakability.length - 1" *ngFor="let breakabilityParagraph of assessment?.breakability;let i = index;">{{breakabilityParagraph}}</p>
+  </div>
+</div>

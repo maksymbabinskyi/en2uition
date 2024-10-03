@@ -1,0 +1,68 @@
+<div class="b-questionary__persons b-questionary__persons_style_2">
+  <div class="b-questionary__persons-inner">
+    <div class="b-questionary__persons-list">
+      <div class="b-questionary__person">
+        <img [src]="img" alt="" class="b-questionary__person-photo">
+      </div>
+      <div class="b-questionary__person">
+        <img [src]="relationship?.image && relationship?.image?.url || 'avatar_default.jpg'" alt="" class="b-questionary__person-photo">
+      </div>
+    </div>
+  </div>
+</div>
+<div class="b-questionary__nav">
+  <div class="b-questionary__nav-item">
+    <button class="b-questionary__nav-link b-questionary__nav-link_back" [disabled]="questionNumber === 1" (click)="goTo(-1)">
+      <span class="b-questionary__nav-link-text">Back</span>
+    </button>
+  </div>
+  <div class="b-questionary__nav-item">
+    <button class="b-questionary__nav-link b-questionary__nav-link_next" (click)="goTo(1)">
+      <span class="b-questionary__nav-link-text">Next</span>
+    </button>
+  </div>
+</div>
+<div class="b-questionary__content _bind">
+  <div class="b-questionary__content-inner">
+    <div class="b-questionary__content-heading">
+      <h3 class="b-questionary__content-suptitle">Feedback topics</h3>
+      <p class="b-questionary__content-title">Questions {{questionNumber}}-{{questionNumber + 14}}</p>
+    </div>
+    <div class="b-questionary__content-description">
+      <p class="b-questionary__content-text">By answering the following 15 questions you will provide us with the information needed to answer the following questions for you:</p>
+      <p class="b-questionary__content-text" [innerHTML]="description"></p>
+    </div>
+    <!-- <div class="_text_center">
+      <button class="-ol-btn -ol-btn_w_fix_md" (click)="close.emit()">Go to question {{questionNumber}}</button>
+    </div> -->
+  </div>
+</div>
+<div class="b-questionary__footer">
+  <div class="b-questionary__footer-inner">
+    <div class="b-questionary__footer-item">
+      <h3 class="b-questionary__footer-heading">Go to Feedback Topics</h3>
+    </div>
+    <div class="b-questionary__footer-item">
+      <div class="b-questionary__footer-options">
+        <div class="b-questionary__footer-options-inner">
+          <div class="b-questionary__footer-option">
+            <a href="#" class="b-questionary__footer-option-text" routerLinkActive="b-questionary__footer-option-text_disabled"
+            [routerLink]="['./', 1]">1</a>
+          </div>
+          <div class="b-questionary__footer-option">
+            <a href="#" class="b-questionary__footer-option-text" routerLinkActive="b-questionary__footer-option-text_disabled"
+            [routerLink]="['./', 16]">2</a>
+          </div>
+          <div class="b-questionary__footer-option">
+            <a href="#" class="b-questionary__footer-option-text" routerLinkActive="b-questionary__footer-option-text_disabled"
+            [routerLink]="['./', 31]">3</a>
+          </div>
+          <div class="b-questionary__footer-option">
+            <a href="#" class="b-questionary__footer-option-text" routerLinkActive="b-questionary__footer-option-text_disabled"
+            [routerLink]="['./', 46]">4</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

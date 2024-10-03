@@ -1,0 +1,47 @@
+<h1 e2-dialog-title>Add Relationship</h1>
+
+<form [formGroup]="form">
+  <hr class="horizontal">
+  <div class="d-flex px-2 px-sm-3">
+    <div class="w-50 d-flex justify-content-center py-3 mr-sm-4">
+      <div class="e2-radio_button vertical-mode">
+        <input type="radio" id="rel-type-2" [value]="1" formControlName="aging">
+        <label for="rel-type-2" class="e2-h7 e2-md-h7 e2-text_center"><span class="e2-fw_semibold e2-text_uppercase">current</span>
+          Relationship</label>
+      </div>
+    </div>
+    <div class="w-50 d-flex justify-content-center py-3">
+      <div class="e2-radio_button vertical-mode">
+        <input type="radio" id="rel-type-1" [value]="0" formControlName="aging">
+        <label for="rel-type-1" class="e2-h7 e2-md-h7 e2-text_center"><span
+          class="e2-fw_semibold e2-text_uppercase">past</span> Relationship</label>
+      </div>
+    </div>
+  </div>
+  <hr class="horizontal">
+  <div class="col-11 col-sm-6 px-0 mx-auto">
+    <div class="e2-avatar e2-avatar--lg e2-md-avatar--xl my-3 mx-auto">
+      <img [src]="previewURL | safe:'resourceUrl'" alt="">
+    </div>
+
+    <div class="d-flex py-3 justify-content-between">
+      <div class="e2-file_field d-flex">
+        <label for="profile-image-uploader-dialog" class="d-flex justify-content-center align-items-center px-2"><img
+          src="assets/images/icons/camera.svg" alt="" class="icon mr-2"> upload photo</label>
+        <input type="file" name="profile-image-uploader" id="profile-image-uploader-dialog"
+               (change)="photoChanged($event)">
+      </div>
+
+      <button class="e2-button px-2" [disabled]="!previewURL" (click)="removePhoto()">
+        <span class="d-flex align-items-center"><img src="assets/images/icons/remove.svg" alt="" class="icon mr-2"> remove photo</span>
+      </button>
+    </div>
+
+    <div class="e2-form_field">
+      <input type="text" class="e2-input w-100" placeholder="Your Partner's Name" formControlName="partnerName">
+    </div>
+
+    <button class="e2-button e2-button--primary w-100" (click)="create()">Create relationship</button>
+  </div>
+</form>
+

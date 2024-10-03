@@ -1,0 +1,73 @@
+<ng-container *ngIf="question">
+  <div class="b-questionary__persons">
+    <div class="b-questionary__persons-inner">
+      <div class="b-questionary__persons-list">
+        <div class="b-questionary__person">
+          <img [src]="stages[0].startsWith('me') ? img : questionService.relationship.image?.url" class="b-questionary__person-photo">
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="b-questionary__nav">
+    <div class="b-questionary__nav-item">
+      <button class="b-questionary__nav-link b-questionary__nav-link_back" (click)="previous()">
+        <span class="b-questionary__nav-link-text">Back</span>
+      </button>
+    </div>
+    <div class="b-questionary__nav-item">
+      <button class="b-questionary__nav-link b-questionary__nav-link_next" (click)="goPartner()">
+        <span class="b-questionary__nav-link-text">Next</span>
+      </button>
+    </div>
+  </div>
+
+  <div class="b-questionary__question" [class.b-questionary__question_female]="stages[0].startsWith('me')" [class.b-questionary__question_male]="stages[0].startsWith('partner')">
+    <h2 class="b-questionary__question-heading">{{getTimeTitle()}}<br>
+    <span class="b-questionary__question-heading_minor" *ngIf="QUESTION_DESCRIPTIONS[question.label].label as label">{{label[stages[0]]}}...</span></h2>
+  </div>
+  
+  <div class="e2-questionnaire_selections">
+    <div [class.b-questionary__form]="!(question.questionType.typeName === 'PercentageLine' && !question.optional.controls)"
+      [class.b-questionary__form_with_question_mark]="question.optional.definition"
+      [class.b-questionary__form_style_2]="question.questionType.typeName === 'YesNo_Radio'">
+      <div [class.b-questionary__form-inner]="question.questionType.typeName !== 'PercentageLine'"
+        [class.b-questionary__form-inner_center_tb]="question.questionType.typeName === 'TypeIn'"
+        [class.b-questionary__form-inner_w_sm]="question.questionType.typeName === 'Slider'"
+        [class.b-questionary__form-inner_center_mb]="question.questionType.typeName === 'CheckBox' || question.questionType.typeName === 'YesNo_Radio'">
+        <e2-question-stage [question]="question" [stage]="stages[0]" [formGroup]="formGroup"></e2-question-stage>
+      </div>
+
+      <button class="b-questionary__question-mark" *ngIf="question.optional.definition" (click)="showDefinitionDialog()">?</button>
+    </div>
+  </div>
+  <hr class="horizontal">
+  <div class="e2-questionnaire_buttons">
+    <a class="b-questionary__footer b-questionary__footer_link" *ngIf="stages[0] === 'me' && stages.length > 1" (click)="stages.shift()">
+      <div class="b-questionary__footer-link">SUBMIT & ANSWER ABOUT YOUR PARTNER</div>
+    </a>
+
+    <a class="b-questionary__footer b-questionary__footer_link" *ngIf="stages.length === 1" (click)="submitAnswer()">
+      <div class="b-questionary__footer-link">Continue to the next question</div>
+    </a>
+
+    <div class="b-questionary__footer b-questionary__footer_active" *ngIf="stages[0] === 'mePast' || stages[0] === 'partnerPast'">
+      <div class="b-questionary__footer-inner">
+        <div class="b-questionary__footer-item">
+          <h3 class="b-questionary__footer-heading">Is this different today?</h3>
+        </div>
+        <div class="b-questionary__footer-item">
+          <div class="b-questionary__footer-options b-questionary__footer-options_p_horiz_xl">
+            <div class="b-questionary__footer-options-inner">
+              <div class="b-questionary__footer-option">
+                <a class="b-questionary__footer-option-btn" (click)="different()">Yes</a>
+              </div>
+              <div class="b-questionary__footer-option">
+                <a class="b-questionary__footer-option-btn" (click)="notDifferent()">No</a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</ng-container>

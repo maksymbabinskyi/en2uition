@@ -1,0 +1,494 @@
+<div class="b-header" [class.b-header_nav_active]="navOpened">
+  <div class="-ol-container -ol-container_lg _full_w _unbind">
+    <div class="b-header__inner">
+      <div class="b-header__part b-header__nav-element-up">
+        <div class="b-header__part-item b-header__part-item_valign">
+          <a class="b-header__logo" routerLink="/"></a>
+        </div>
+      </div>
+
+      <div class="b-header__part">
+        <div class="b-header__part-item _none_tb">
+          <ul class="b-header__nav">
+            <li class="b-header__nav-item" routerLinkActive="b-header__nav-item_active" *e2IfLoggedIn>
+              <a routerLink="/relationships" class="b-header__nav-link b-header__nav-element-up">
+                <span class="b-header__text b-header__text_link">{{'My Relationships' | translate}}</span>
+              </a>
+            </li>
+
+            <li class="b-header__nav-item" routerLinkActive="b-header__nav-item_active" (mouseenter)="navOpened = true"
+                (mouseleave)="navOpened = false">
+              <a routerLink="/how-it-works" class="b-header__nav-link b-header__nav-element-up">
+                <span class="b-header__text b-header__text_link">{{'How it works' | translate}}</span>
+              </a>
+
+              <div class="b-header__dropdown">
+                <div class="-ol-container -ol-container_lg">
+                  <div class="b-header__dropdown-inner">
+                    <div class="b-header__dropdown-item">
+                      <div class="b-header__dropdown-info">
+                        <h3 class="b-header__dropdown-heading">Understand en2uition Approach and<br>Steps of Our Scientific Method</h3>
+                        <p class="b-header__dropdown-text">Donec viverra quam sed ante tristique, aliquam ultrices nibh venenatis proin vel justo nibh. Fusce sodales posuere orci dignissim pharetra. Morbi velit est, dapibus id augue eu, feugiat porttitor leo.</p>
+                        <button class="-ol-btn -ol-btn_w_fix_md" routerLink="/how-it-works">Learn how it works</button>
+                      </div>
+                    </div>
+                    <div class="b-header__dropdown-item">
+                      <div class="b-header__dropdown-section">
+                        <div class="b-header__dropdown-heading-2 b-header__dropdown-heading-2_major">
+                          <h3 class="b-header__dropdown-heading-2-text">{{'Our Method' | translate}}</h3>
+                        </div>
+                        <ul class="b-header__dropdown-list">
+                          <li class="b-header__dropdown-list-item">
+                            <a (click)="dropdownNavigate(['/how-it-works/our-method/en2uition-approach'])"
+                               class="b-header__dropdown-link">{{'The en2uition approach' | translate}}</a>
+                          </li>
+                          <li class="b-header__dropdown-list-item">
+                            <a (click)="dropdownNavigate(['/how-it-works/our-method/use-of-ai'])"
+                               class="b-header__dropdown-link">{{'Using Artificial Intelligence' | translate}}</a>
+                          </li>
+                        </ul>
+                      </div>
+                      <div class="b-header__dropdown-section b-header__dropdown-section_last">
+                        <div class="b-header__dropdown-heading-2 b-header__dropdown-heading-2_major">
+                          <h3 class="b-header__dropdown-heading-2-text">{{'Your Input' | translate}}</h3>
+                        </div>
+                        <ul class="b-header__dropdown-list">
+                          <li class="b-header__dropdown-list-item">
+                            <a (click)="dropdownNavigate(['/how-it-works/your-input/questionnaire-process'])"
+                               class="b-header__dropdown-link">{{'The Questionnaire Process' | translate}}</a>
+                          </li>
+                          <li class="b-header__dropdown-list-item">
+                            <a (click)="dropdownNavigate(['/how-it-works/your-input/our-360-degree-questionnaire'])"
+                               class="b-header__dropdown-link">{{'Our 360-degree Questionnaire' | translate}}</a>
+                          </li>
+                        </ul>
+                      </div>
+                    </div>
+                    <div class="b-header__dropdown-item">
+                      <div class="b-header__dropdown-heading-2 b-header__dropdown-heading-2_major">
+                        <h3 class="b-header__dropdown-heading-2-text">{{'Assessment' | translate}}</h3>
+                      </div>
+                      <div class="b-header__dropdown-lists">
+                        <div class="b-header__dropdown-lists-item">
+                          <div class="b-header__dropdown-heading-2">
+                            <h4 class="b-header__dropdown-heading-2-text">{{'Based on the Triangular Theory of Love' | translate}}</h4>
+                          </div>
+                          <ul class="b-header__dropdown-list">
+                            <li class="b-header__dropdown-list-item">
+                              <a
+                                (click)="dropdownNavigate(['/how-it-works/assessment-based-on-triangular-theory/introduction'])"
+                                class="b-header__dropdown-link">{{'Triangular Theory of Love' | translate}}</a>
+                            </li>
+                            <li class="b-header__dropdown-list-item">
+                              <a
+                                (click)="dropdownNavigate(['/how-it-works/assessment-based-on-triangular-theory/what-you-get'])"
+                                class="b-header__dropdown-link">{{'What You Get' | translate}}</a>
+                            </li>
+                            <li class="b-header__dropdown-list-item">
+                              <a (click)="dropdownNavigate(['/how-it-works/assessment-based-on-triangular-theory'])"
+                                 class="b-header__dropdown-link">{{'Quick Demonstration' | translate}}</a>
+                            </li>
+                            <li class="b-header__dropdown-list-item">
+                              <a
+                                (click)="dropdownNavigate(['/how-it-works/assessment-based-on-triangular-theory/love-participation-types'])"
+                                class="b-header__dropdown-link">{{'Love Participation Types' | translate}}</a>
+                            </li>
+                            <li class="b-header__dropdown-list-item">
+                              <a
+                                (click)="dropdownNavigate(['/how-it-works/assessment-based-on-triangular-theory/deep-dive'])"
+                                class="b-header__dropdown-link">{{'Deep Dive' | translate}}</a>
+                            </li>
+                          </ul>
+                        </div>
+                        <div class="b-header__dropdown-lists-item">
+                          <div class="b-header__dropdown-heading-2">
+                            <h4 class="b-header__dropdown-heading-2-text">{{'Based on the 24 Relationship Areas' | translate}}</h4>
+                          </div>
+                          <ul class="b-header__dropdown-list">
+                            <li class="b-header__dropdown-list-item">
+                              <a
+                                (click)="dropdownNavigate(['/how-it-works/assessment-on-24-relationship-areas/introduction'])"
+                                class="b-header__dropdown-link">{{'24 Important Relationship Areas' | translate}}</a>
+                            </li>
+                            <li class="b-header__dropdown-list-item">
+                              <a
+                                (click)="dropdownNavigate(['/how-it-works/assessment-on-24-relationship-areas/methodology'])"
+                                class="b-header__dropdown-link">{{'What You Get' | translate}}</a>
+                            </li>
+                            <li class="b-header__dropdown-list-item">
+                              <a (click)="dropdownNavigate(['/how-it-works/assessment-on-24-relationship-areas'])"
+                                 class="b-header__dropdown-link">{{'Quick Demonstration' | translate}}</a>
+                            </li>
+                          </ul>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+            </li>
+            <li class="b-header__nav-item" routerLinkActive="b-header__nav-item_active">
+              <a routerLink="/pricing" class="b-header__nav-link b-header__nav-element-up">
+                <span class="b-header__text b-header__text_link">{{'Pricing' | translate}}</span>
+              </a>
+            </li>
+            <li class="b-header__nav-item" routerLinkActive="b-header__nav-item_active">
+              <a routerLink="/faq" class="b-header__nav-link b-header__nav-element-up">
+                <span class="b-header__text b-header__text_link">{{'FAQ' | translate}}</span>
+              </a>
+            </li>
+            <li class="b-header__nav-item" routerLinkActive="b-header__nav-item_active">
+              <a routerLink="/about-us" class="b-header__nav-link b-header__nav-element-up">
+                <span class="b-header__text b-header__text_link">{{'About Us' | translate}}</span>
+              </a>
+            </li>
+            <li class="b-header__nav-item" routerLinkActive="b-header__nav-item_active">
+              <a routerLink="/contact-us" class="b-header__nav-link b-header__nav-element-up">
+                <span class="b-header__text b-header__text_link">{{'Contact Us' | translate}}</span>
+              </a>
+            </li>
+          </ul>
+        </div>
+
+        <div class="b-header__part-item b-header__nav-element-up _none_mb">
+          <ul class="b-header__part b-header__part_sm">
+            <li class="b-header__part-item">
+              <div class="b-header__dropdown-sm-bind" tabindex="0">
+                <div class="b-btn-language">
+                  <div class="b-header__text">{{langCode | uppercase}}</div>
+                </div>
+                <div class="b-header__dropdown-sm b-header__dropdown-sm_center b-header__dropdown-sm_w_xs">
+                  <a class="b-header__dropdown-sm-item"
+                     [class.b-header__dropdown-sm-item_active]="langCode === 'en'" (click)="changeLang('en')">
+                    <span class="b-header__dropdown-sm-text">English (US)</span>
+                  </a>
+                  <a class="b-header__dropdown-sm-item"
+                    [class.b-header__dropdown-sm-item_active]="langCode === 'de'" (click)="changeLang('de')">
+                    <span class="b-header__dropdown-sm-text">Deutsch</span>
+                  </a>
+                  <a class="b-header__dropdown-sm-item"
+                    [class.b-header__dropdown-sm-item_active]="langCode === 'es'" (click)="changeLang('es')">
+                    <span class="b-header__dropdown-sm-text">Español</span>
+                  </a>
+                  <a class="b-header__dropdown-sm-item"
+                    [class.b-header__dropdown-sm-item_active]="langCode === 'fr'" (click)="changeLang('fr')">
+                    <span class="b-header__dropdown-sm-text">Français</span>
+                  </a>
+                </div>
+              </div>
+            </li>
+            <li class="b-header__part-item" *e2IfNotLoggedIn>
+              <!--(click)="openLogInDialog()"-->
+              <button class="b-header__nav-2-link" routerLink="/log-in">
+                <span class="b-header__nav-2-link-text">{{'Log In' | translate}}</span>
+              </button>
+            </li>
+            <li class="b-header__part-item" *e2IfNotLoggedIn>
+              <a routerLink="/sign-up" class="b-header__nav-2-link">
+                <span class="b-header__nav-2-link-text">{{'Sign Up' | translate}}</span>
+              </a>
+            </li>
+
+            <li class="b-header__part-item _none_tb" *e2IfLoggedIn>
+              <div class="b-header__dropdown-sm-bind" tabindex="0">
+                <div class="b-header__nav-user">
+                  <div class="b-header__nav-user-item b-header__nav-user-item_photo">
+                    <img class="b-header__nav-user-photo" [src]="profile?.image?.url">
+                  </div>
+                  <div class="b-header__nav-user-item b-header__nav-user-item_name b-header__nav-user-item_dropdown">
+                    <div class="b-header__nav-user-text">{{getUser().email}}</div>
+                  </div>
+                  <div class="b-header__dropdown-sm">
+                    <a href="#" class="b-header__dropdown-sm-item" (mousedown)="navigate(['/profile'])"
+                       routerLinkActive="b-header__dropdown-sm-item_active">
+                      <span class="b-header__dropdown-sm-text">{{'Profile Details' | translate}}</span>
+                    </a>
+                    <a href="#" class="b-header__dropdown-sm-item"
+                       (mousedown)="navigate(['/payment'])"
+                       routerLinkActive="b-header__dropdown-sm-item_active">
+                      <span class="b-header__dropdown-sm-text">{{'Payment' | translate}}</span>
+                    </a>
+                    <a href="#" class="b-header__dropdown-sm-item" (mousedown)="logout()">
+                      <span class="b-header__dropdown-sm-text">{{'Log Out' | translate}}</span>
+                    </a>
+                  </div>
+                </div>
+              </div>
+            </li>
+          </ul>
+        </div>
+
+
+        <div class="b-header__part-item b-header__part-item_valign b-header__nav-element-up _only_flex_tb">
+          <div class="b-header__nav-hamburger" [class.b-header__nav-hamburger_active]="navOpened">
+            <div class="b-header__nav-hamburger-btn" (click)="navOpened = !navOpened">
+              <span class="b-header__nav-hamburger-btn-icon">
+                <span class="b-header__nav-hamburger-btn-icon-inner"></span>
+                <span class="b-header__nav-hamburger-btn-icon-inner-2"></span>
+              </span>
+            </div>
+            <div class="b-header__nav-mb">
+              <div class="b-header__nav-mb-btns _only_flex_mb" *e2IfNotLoggedIn>
+                <button class="b-header__nav-mb-btn" routerLink="/log-in">{{'Log In' | translate}}</button>
+                <button class="b-header__nav-mb-btn" routerLink="/sign-up">{{'Sign Up' | translate}}</button>
+              </div>
+              <ul class="b-header__nav-mb-list">
+                <li class="b-header__nav-mb-list-item b-header__nav-mb-list-item_with_subnav"
+                    [ngClass]="{'b-header__nav-mb-list-item_opened b-header__nav-mb-list-item_active': navigationService.activeItem === userNav}"
+                    *e2IfLoggedIn
+                    #userNav>
+                  <button class="b-header__nav-mb-link b-header__nav-mb-link_user" type="button"
+                          (click)="navigationService.setActiveItem(userNav)">
+                    <div class="b-header__nav-user-item b-header__nav-user-item_photo">
+                      <img class="b-header__nav-user-photo" [src]="profile?.image?.url">
+                    </div>
+                    <div class="b-header__nav-user-item b-header__nav-user-item_name">
+                      <div class="b-header__nav-user-text">{{getUser().email}}</div>
+                    </div>
+                  </button>
+                  <ul class="b-header__nav-mb-category">
+                    <li class="b-header__nav-mb-category-item"
+                        routerLinkActive="b-header__nav-mb-category-item_active">
+                      <a class="b-header__nav-mb-category-heading"
+                         routerLink="/profile">
+                        <div class="b-header__nav-mb-category-heading-text">Profile Details</div>
+                      </a>
+                    </li>
+                    <li class="b-header__nav-mb-category-item" routerLinkActive="b-header__nav-mb-category-item_active">
+                      <a class="b-header__nav-mb-category-heading" routerLink="/payment">
+                        <div class="b-header__nav-mb-category-heading-text">Payment</div>
+                      </a>
+                    </li>
+                    <li class="b-header__nav-mb-category-item" (click)="logout()">
+                      <a class="b-header__nav-mb-category-heading">
+                        <div class="b-header__nav-mb-category-heading-text">Log Out</div>
+                      </a>
+                    </li>
+                  </ul>
+                </li>
+
+                <li class="b-header__nav-mb-list-item b-header__nav-mb-list-item_opened"
+                    routerLinkActive="b-header__nav-mb-list-item_active"
+                    #hiw>
+                  <div class="b-header__nav-mb-heading">
+                    <h3 class="b-header__nav-mb-heading-text">Understand en2uition Approach and<br>Steps of Our Scientific Method</h3>
+                    <button class="-ol-btn _full_w" routerLink="/how-it-works">Learn how it works</button>
+                  </div>
+                  <ul class="b-header__nav-mb-category">
+                    <li class="b-header__nav-mb-category-item"
+                        routerLinkActive="b-header__nav-mb-category-item_active"
+                        [class.b-header__nav-mb-category-item_opened]="navigationService.activeCategory === ourMethod"
+                        #ourMethod>
+                      <div class="b-header__nav-mb-category-heading b-header__nav-mb-category-heading_with_subnav"
+                           (click)="navigationService.setActiveCategory(ourMethod)">
+                        <div class="b-header__nav-mb-category-heading-text">{{'Our Method' | translate}}</div>
+                      </div>
+                      <div class="b-header__nav-mb-subcategory">
+                        <div class="b-header__nav-mb-subcategory-item b-header__nav-mb-subcategory-item_opened">
+                          <ul class="b-header__nav-mb-subcategory-list">
+                            <li class="b-header__nav-mb-subcategory-list-item"
+                                routerLinkActive="b-header__nav-mb-subcategory-list-item_active">
+                              <a routerLink="/how-it-works/our-method/en2uition-approach"
+                                 class="b-header__nav-mb-subcategory-link">
+                                <span class="b-header__nav-mb-subcategory-text">{{'The en2uition approach' | translate}}</span>
+                              </a>
+                            </li>
+                            <li class="b-header__nav-mb-subcategory-list-item"
+                                routerLinkActive="b-header__nav-mb-subcategory-list-item_active">
+                              <a routerLink="/how-it-works/our-method/use-of-ai"
+                                 class="b-header__nav-mb-subcategory-link">
+                                <span class="b-header__nav-mb-subcategory-text">{{'Using Artificial Intelligence' | translate}}</span>
+                              </a>
+                            </li>
+                          </ul>
+                        </div>
+                      </div>
+                    </li>
+                    <li class="b-header__nav-mb-category-item"
+                        routerLinkActive="b-header__nav-mb-category-item_active"
+                        [class.b-header__nav-mb-category-item_opened]="navigationService.activeCategory === yourInput"
+                        #yourInput>
+                      <div class="b-header__nav-mb-category-heading b-header__nav-mb-category-heading_with_subnav"
+                           (click)="navigationService.setActiveCategory(yourInput)">
+                        <div class="b-header__nav-mb-category-heading-text">{{'Your Input' | translate}}</div>
+                      </div>
+                      <div class="b-header__nav-mb-subcategory">
+                        <div class="b-header__nav-mb-subcategory-item b-header__nav-mb-subcategory-item_opened">
+                          <ul class="b-header__nav-mb-subcategory-list">
+                            <li class="b-header__nav-mb-subcategory-list-item"
+                                routerLinkActive="b-header__nav-mb-subcategory-list-item_active">
+                              <a routerLink="/how-it-works/your-input/questionnaire-process"
+                                 class="b-header__nav-mb-subcategory-link">
+                                <span class="b-header__nav-mb-subcategory-text">{{'The Questionnaire Process' | translate}}</span>
+                              </a>
+                            </li>
+                            <li class="b-header__nav-mb-subcategory-list-item"
+                                routerLinkActive="b-header__nav-mb-subcategory-list-item_active">
+                              <a routerLink="/how-it-works/your-input/our-360-degree-questionnaire"
+                                 class="b-header__nav-mb-subcategory-link">
+                                <span class="b-header__nav-mb-subcategory-text">{{'Our 360-degree Questionnaire' | translate}}</span>
+                              </a>
+                            </li>
+                          </ul>
+                        </div>
+                      </div>
+                    </li>
+                    <li class="b-header__nav-mb-category-item"
+                        routerLinkActive="b-header__nav-mb-category-item_active"
+                        [class.b-header__nav-mb-category-item_opened]="navigationService.activeCategory === assessment"
+                        #assessment>
+                      <div class="b-header__nav-mb-category-heading b-header__nav-mb-category-heading_with_subnav"
+                           (click)="navigationService.setActiveCategory(assessment)">
+                        <div class="b-header__nav-mb-category-heading-text">{{'Assessment' | translate}}</div>
+                      </div>
+                      <div class="b-header__nav-mb-subcategory">
+                        <div class="b-header__nav-mb-subcategory-item b-header__nav-mb-subcategory-item_opened"
+                             [class.b-header__nav-mb-subcategory-item_opened]="navigationService.activeSubcategory === triangular"
+                             #triangular>
+                          <div class="b-header__nav-mb-subcategory-heading"
+                               (click)="navigationService.setActiveSubcategory(triangular)">
+                            <div class="b-header__nav-mb-subcategory-heading-text">{{'Based on the Triangular Theory of Love' | translate}}</div>
+                          </div>
+                          <ul class="b-header__nav-mb-subcategory-list">
+                            <li class="b-header__nav-mb-subcategory-list-item"
+                                routerLinkActive="b-header__nav-mb-subcategory-list-item_active">
+                              <a routerLink="/how-it-works/assessment-based-on-triangular-theory/introduction"
+                                 class="b-header__nav-mb-subcategory-link">
+                                <span class="b-header__nav-mb-subcategory-text">{{'Triangular Theory of Love' | translate}}</span>
+                              </a>
+                            </li>
+                            <li class="b-header__nav-mb-subcategory-list-item"
+                                routerLinkActive="b-header__nav-mb-subcategory-list-item_active">
+                              <a routerLink="/how-it-works/assessment-based-on-triangular-theory/what-you-get"
+                                 class="b-header__nav-mb-subcategory-link">
+                                <span class="b-header__nav-mb-subcategory-text">{{'What You Get' | translate}}</span>
+                              </a>
+                            </li>
+                            <li class="b-header__nav-mb-subcategory-list-item"
+                                routerLinkActive="b-header__nav-mb-subcategory-list-item_active">
+                              <a routerLink="/how-it-works/assessment-based-on-triangular-theory"
+                                 class="b-header__nav-mb-subcategory-link">
+                                <span class="b-header__nav-mb-subcategory-text">{{'Quick Demonstration' | translate}}</span>
+                              </a>
+                            </li>
+                            <li class="b-header__nav-mb-subcategory-list-item"
+                                routerLinkActive="b-header__nav-mb-subcategory-list-item_active">
+                              <a
+                                routerLink="/how-it-works/assessment-based-on-triangular-theory/love-participation-types"
+                                class="b-header__nav-mb-subcategory-link">
+                                <span class="b-header__nav-mb-subcategory-text">{{'Love Participation Types' | translate}}</span>
+                              </a>
+                            </li>
+                            <li class="b-header__nav-mb-subcategory-list-item">
+                              <a routerLink="/how-it-works/assessment-based-on-triangular-theory/deep-dive"
+                                 class="b-header__nav-mb-subcategory-link">
+                                <span class="b-header__nav-mb-subcategory-text">{{'Deep Dive' | translate}}</span>
+                              </a>
+                            </li>
+                          </ul>
+                        </div>
+                        <div class="b-header__nav-mb-subcategory-item"
+                             [class.b-header__nav-mb-subcategory-item_opened]="navigationService.activeSubcategory === twentyfour"
+                             #twentyfour>
+                          <div class="b-header__nav-mb-subcategory-heading"
+                               (click)="navigationService.setActiveSubcategory(twentyfour)">
+                            <div class="b-header__nav-mb-subcategory-heading-text">{{'Based on the 24 Relationship Areas' | translate}}</div>
+                          </div>
+                          <ul class="b-header__nav-mb-subcategory-list">
+                            <li class="b-header__nav-mb-subcategory-list-item"
+                                routerLinkActive="b-header__nav-mb-subcategory-list-item_active">
+                              <a routerLink="/how-it-works/assessment-on-24-relationship-areas/introduction"
+                                 class="b-header__nav-mb-subcategory-link">
+                                <span class="b-header__nav-mb-subcategory-text">{{'24 Important Relationship Areas' | translate}}</span>
+                              </a>
+                            </li>
+                            <li class="b-header__nav-mb-subcategory-list-item"
+                                routerLinkActive="b-header__nav-mb-subcategory-list-item_active">
+                              <a routerLink="/how-it-works/assessment-on-24-relationship-areas/methodology"
+                                 class="b-header__nav-mb-subcategory-link">
+                                <span class="b-header__nav-mb-subcategory-text">{{'What You Get' | translate}}</span>
+                              </a>
+                            </li>
+                            <li class="b-header__nav-mb-subcategory-list-item"
+                                routerLinkActive="b-header__nav-mb-subcategory-list-item_active">
+                              <a routerLink="/how-it-works/assessment-on-24-relationship-areas"
+                                 class="b-header__nav-mb-subcategory-link">
+                                <span class="b-header__nav-mb-subcategory-text">{{'Quick Demonstration' | translate}}</span>
+                              </a>
+                            </li>
+                          </ul>
+                        </div>
+                      </div>
+                    </li>
+                  </ul>
+                </li>
+
+                <li class="b-header__nav-mb-list-item" routerLinkActive="b-header__nav-mb-list-item_active"
+                    *e2IfLoggedIn>
+                  <a routerLink="/relationships" class="b-header__nav-mb-link">
+                    <span class="b-header__nav-mb-text">{{'My Relationships' | translate}}</span>
+                  </a>
+                </li>
+
+                <li class="b-header__nav-mb-list-item" routerLinkActive="b-header__nav-mb-list-item_active">
+                  <a routerLink="/pricing" class="b-header__nav-mb-link">
+                    <span class="b-header__nav-mb-text">{{'Pricing' | translate}}</span>
+                  </a>
+                </li>
+
+                <li class="b-header__nav-mb-list-item" routerLinkActive="b-header__nav-mb-list-item_active">
+                  <a routerLink="/faq" class="b-header__nav-mb-link">
+                    <span class="b-header__nav-mb-text">{{'FAQ' | translate}}</span>
+                  </a>
+                </li>
+                <li class="b-header__nav-mb-list-item" routerLinkActive="b-header__nav-mb-list-item_active">
+                  <a routerLink="/about-us" class="b-header__nav-mb-link">
+                    <span class="b-header__nav-mb-text">{{'About Us' | translate}}</span>
+                  </a>
+                </li>
+                <li class="b-header__nav-mb-list-item" routerLinkActive="b-header__nav-mb-list-item_active">
+                  <a routerLink="/contact-us" class="b-header__nav-mb-link">
+                    <span class="b-header__nav-mb-text">{{'Contact Us' | translate}}</span>
+                  </a>
+                </li>
+                <li class="b-header__nav-mb-list-item b-header__nav-mb-list-item_with_subnav" [class.b-header__nav-mb-list-item_opened]="isLangOpened">
+                  <button class="b-header__nav-mb-link" (click)="isLangOpened = !isLangOpened">
+                    <span class="b-btn-language">
+                      <span class="b-header__nav-mb-text">{{langCode | uppercase}}</span>
+                    </span>
+                  </button>
+                  <ul class="b-header__nav-mb-category">
+                    <li class="b-header__nav-mb-category-item" [class.b-header__nav-mb-category-item_active]="langCode === 'en'" (click)="changeLang('en')">
+                      <div class="b-header__nav-mb-category-heading">
+                        <div class="b-header__nav-mb-category-heading-text">English (US)</div>
+                      </div>
+                    </li>
+                    <li class="b-header__nav-mb-category-item" [class.b-header__nav-mb-category-item_active]="langCode === 'de'" (click)="changeLang('de')">
+                      <div class="b-header__nav-mb-category-heading">
+                        <div class="b-header__nav-mb-category-heading-text">Deutsch</div>
+                      </div>
+                    </li>
+                    <li class="b-header__nav-mb-category-item" [class.b-header__nav-mb-category-item_active]="langCode === 'es'" (click)="changeLang('es')">
+                      <div class="b-header__nav-mb-category-heading">
+                        <div class="b-header__nav-mb-category-heading-text">Español</div>
+                      </div>
+                    </li>
+                    <li class="b-header__nav-mb-category-item" [class.b-header__nav-mb-category-item_active]="langCode === 'fr'" (click)="changeLang('fr')">
+                      <div class="b-header__nav-mb-category-heading">
+                        <div class="b-header__nav-mb-category-heading-text">Français</div>
+                      </div>
+                    </li>
+                  </ul>
+                </li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="b-loader" *ngIf="loading">
+    <div class="b-loader__bar"></div>
+  </div>
+</div>

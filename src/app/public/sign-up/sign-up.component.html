@@ -1,0 +1,80 @@
+
+<div class="b-section" *ngIf="!isSubmitted">
+  <div class="-ol-container -ol-container_sm_2">
+
+    <div class="b-heading">
+      <h1 class="b-heading__title b-heading__title_last">{{'Sign Up' | translate}}</h1>
+    </div>
+
+    <div class="b-sign-up">
+      <div class="b-sign-up__inner">
+        <div class="b-sign-up__item b-sign-up__item_content">
+          <div class="b-sign-up__content">
+            <div class="b-heading-7">
+              <div class="b-heading-7__title">By having an en2uition account, you can:</div>
+            </div>
+            <ul class="b-list b-list_lg b-list_last">
+              <li class="b-list__item">
+                <p class="b-text b-text_sm b-text_last">Phasellus sagittis libero sit amet turpis mollis fermentum. Etiam hendrerit risus ut nulla luctus molestie condimentum risus eget efficitur.</p>
+              </li>
+              <li class="b-list__item">
+                <p class="b-text b-text_sm b-text_last">Praesent sit amet turpis nec ligula dictum hendrerit. Sed et ante egestas, euismod tellus eget, porttitor lectus. Proin condimentum risus eget.</p>
+              </li>
+              <li class="b-list__item">
+                <p class="b-text b-text_sm b-text_last">Sed in tellus in dui dignissim ultricies. Mauris vitae est vitae enim tincidunt sagittis id at odio.</p>
+              </li>
+              <li class="b-list__item">
+                <p class="b-text b-text_sm b-text_last">Mauris vitae est vitae enim tincidunt sagittis id at odio. Nunc pretium sem non nunc gravida, a interdum leo ultricies.</p>
+              </li>
+            </ul>
+          </div>
+        </div>
+        <div class="b-sign-up__item b-sign-up__item_box">
+          <div class="b-sign-up__box">
+            <form action="" [formGroup]="form">
+              <div class="b-login">
+                <div class="b-login__form">
+                  <div class="-ol-row-input -ol-row-input_m_b_xs">
+                    <div class="-ol-input-wrap">
+                      <input type="email" class="-ol-input" placeholder="{{'Your email' | translate}}" autocomplete="email" formControlName="email">
+                    </div>
+                  </div>
+                  <div class="-ol-row-input -ol-row-input_m_b_xs">
+                    <div class="-ol-input-wrap -ol-input-wrap_visible">
+                      <input placeholder="{{'Your password' | translate}}" [type]="showPassword ? 'text' : 'password'" class="-ol-input -ol-input_with_visibility_switcher" autocomplete="new-password" formControlName="password">
+                      <button class="b-btn-visibility b-btn-visibility_input" *ngIf="showPassword" (click)="showPassword = !showPassword"></button>
+                      <button class="b-btn-hidden b-btn-hidden_input" [style.display]="'inline'" *ngIf="!showPassword" (click)="showPassword = !showPassword"></button>
+                    </div>
+                  </div>
+                  <div class="-ol-row-input">
+                    <div class="-ol-input-wrap">
+                      <input placeholder="{{'Confirm Password' | translate}}" class="-ol-input -ol-input_with_visibility_switcher" [type]="showConfirmPassword ? 'text' : 'password'" autocomplete="new-password" formControlName="confirmPassword">
+                      <button class="b-btn-visibility b-btn-visibility_input" *ngIf="showConfirmPassword" (click)="showConfirmPassword = !showConfirmPassword"></button>
+                      <button class="b-btn-hidden b-btn-hidden_input" [style.display]="'inline'" *ngIf="!showConfirmPassword" (click)="showConfirmPassword = !showConfirmPassword"></button>
+                    </div>
+                  </div>
+                  <button class="-ol-btn _full_w" (click)="signup()" [disabled]="form.invalid">{{'Sign Up' | translate}}</button>
+                </div>
+                <div class="b-login__bottom">
+                  <div class="b-login__bottom-item">
+                    <p class="b-login__text b-login__text_last">{{'Already have an account?' | translate}}</p>
+                  </div>
+                  <div class="b-login__bottom-item">
+                    <p class="b-login__text b-login__text_last"><a class="b-login__text_link -ol-link" routerLink="/log-in">{{'Log In' | translate}}</a></p>
+                  </div>
+                </div>
+                <p class="b-login__text-sm">By signing in, you are agreeng to our <a routerLink="/faq" class="-ol-link">Privacy Policy</a> and <a routerLink="/faq" class="-ol-link">Term of Service</a></p>
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="b-section text-center" *ngIf="isSubmitted">
+  <div>We sent a confirmation link to your email. Please check your email.</div>
+</div>
+
+<e2-alert [messages]="errors" (closeAlert)="errors = []" *ngIf="errors.length > 0" type="failed"></e2-alert>

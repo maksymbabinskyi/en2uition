@@ -1,0 +1,51 @@
+@import "variables";
+
+.e2-faq_item{
+  height: 160px;
+  border: 1px solid $color-border;
+  box-shadow: 1px 1px 5px #ebedee;
+  border-radius: 5px;
+  font-size: 21px;
+  overflow: hidden;
+  position: relative;
+  margin-bottom: 20px;
+  cursor: pointer;
+  @media screen and (min-width: map-get($grid-breakpoints, md)){
+    width: calc((100% - 10px * 2) / 3);
+    &:not(:last-of-type){
+      margin-right: 10px;
+      margin-bottom: 30px;
+    }
+  }
+  &:hover{
+    color: $color-primary_500;
+    box-shadow: 5px 9px 21px #ebedee; 
+  }
+  &.active{
+    @media screen and (max-width: map-get($grid-breakpoints, md)){
+      margin-bottom: 0;
+      border-bottom-right-radius: 0;
+      border-bottom-left-radius: 0;
+      box-shadow: none;
+      & + e2-accordion{
+        display: block;
+        margin-bottom: 20px;
+        border-left: 1px solid $color-border;
+        border-right: 1px solid $color-border;
+      }
+    }
+  }
+
+  &:hover,
+  &.active{
+    &::before{
+      content: "";
+      height: 5px;
+      width: 100%;
+      background-color: $color-primary_400;
+      position: absolute;
+      top: 0;
+      left: 0;
+    }
+  }
+}

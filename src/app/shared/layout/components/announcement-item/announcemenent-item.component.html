@@ -1,0 +1,105 @@
+<article class="e2-announcement_item e2-h6">
+  <div class="e2-announcement_panel-wrap d-flex justify-content-md-end" *ngIf="panelHeader || panelText">
+    <div class="e2-announcement_panel d-flex align-items-center justify-content-center e2-color_white e2-bg_accent700 e2-from-right" data-scroll>
+      <section class="e2-announcement_text">
+        <h2 class="e2-fw_light e2-h2 e2-md-h2 pb-4" *ngIf="panelHeader">{{panelHeader}}</h2>
+        <p class="pb-3">{{panelText}}</p>
+        <a [routerLink]="panelLinkUrl" class="e2-link">{{panelLink}}</a>
+      </section>
+    </div>
+    <div>
+      <img [src]="panelImgUrl" alt="" [class.e2-from-left]="!rowReverse" [class.e2-from-right]="rowReverse" data-scroll>
+    </div>
+  </div>
+
+  <div class="d-flex flex-column flex-lg-row align-items-center justify-content-between"
+       [class.flex-lg-row-reverse]="rowReverse"
+       *ngIf="!panelHeader || !panelText">
+    <div [ngClass]="'e2-announcement_content ' + customClass" [class.flex-shrink-0]="!rowReverse">
+      <h1 class="e2-announcement_header e2-md-h1 e2-h1 e2-fw_light e2-from-left d-lg-none" data-scroll
+          *ngIf="repeatAnnouncementHeader && !contentHeaderWithDash">{{repeatAnnouncementHeaderText}}</h1>
+      <h2 class="e2-fw_light e2-h1 e2-md-h1 py-2 e2-color_text-parimary d-none d-lg-block" data-scroll
+          [class.e2-from-left]="!rowReverse" [class.e2-from-right]="rowReverse"
+          *ngIf="contentHeaderWithDash">{{contentHeaderWithDash}}</h2>
+      <div class="e2-announcement_text d-flex flex-column" *ngIf="contentHeader || contentText || contentList">
+        <h2 class="e2-fw_light e2-h2 e2-md-h2 pt-3 pb-2 py-lg-2 e2-color_text-parimary" data-scroll
+            [class.e2-from-left]="!rowReverse" [class.e2-from-right]="rowReverse"
+            *ngIf="contentHeader">{{contentHeader}}</h2>
+        <p class="py-3" data-scroll
+           [class.e2-from-left]="!rowReverse" [class.e2-from-right]="rowReverse"
+           *ngIf="contentText" [innerHTML]="contentText | safe:'html'" route-transformer></p>
+
+        <p class="py-3" data-scroll
+           [class.e2-from-left]="!rowReverse" [class.e2-from-right]="rowReverse"
+           *ngIf="contentText2" [innerHTML]="contentText2 | safe:'html'" route-transformer></p>
+
+        <div data-scroll
+             [class.e2-from-left]="!rowReverse" [class.e2-from-right]="rowReverse"
+             *ngIf="contentLink">
+          <a [routerLink]="contentLinkUrl" class="e2-link py-2">{{contentLink}}</a>
+        </div>
+
+        <ul *ngIf="contentList">
+          <li data-scroll
+              [class.e2-from-left]="!rowReverse" [class.e2-from-right]="rowReverse"
+              [class.py-2]="!nomargin"
+              [class.mb-2]="!nomargin">
+            <p class="pb-2">{{contentListText1}}</p>
+            <a [routerLink]="contentListLinkUrl1" class="e2-link" *ngIf="contentListLink1">{{contentListLink1}}</a>
+          </li>
+          <li data-scroll
+              [class.e2-from-left]="!rowReverse" [class.e2-from-right]="rowReverse"
+              [class.py-2]="!nomargin"
+              [class.mb-2]="!nomargin"
+              *ngIf="contentListText2">
+            <p class="pb-2">{{contentListText2}}</p>
+            <a [routerLink]="contentListLinkUrl2" class="e2-link" *ngIf="contentListLink2">{{contentListLink2}}</a>
+          </li>
+          <li data-scroll
+              [class.e2-from-left]="!rowReverse" [class.e2-from-right]="rowReverse"
+              [class.py-2]="!nomargin"
+              [class.mb-2]="!nomargin"
+              *ngIf="contentListText3">
+            <p class="pb-2">{{contentListText3}}</p>
+            <a [routerLink]="contentListLinkUrl3" class="e2-link" *ngIf="contentListLink3">{{contentListLink3}}</a>
+          </li>
+          <li data-scroll
+              [class.e2-from-left]="!rowReverse" [class.e2-from-right]="rowReverse"
+              [class.py-2]="!nomargin"
+              *ngIf="contentListText4">
+            <p class="pb-2">{{contentListText4}}</p>
+            <a [routerLink]="contentListLinkUrl4" class="e2-link" *ngIf="contentListLink4">{{contentListLink4}}</a>
+          </li>
+        </ul>
+      </div>
+
+      <div class="e2-announcement_text d-flex flex-column" *ngIf="contentHeaderLink">
+        <div class="mt-4 mt-lg-0 mb-3" data-scroll
+             [class.e2-from-left]="!rowReverse" [class.e2-from-right]="rowReverse"
+             *ngIf="contentHeaderLink">
+          <a [routerLink]="contentHeaderLinkUrl" class="e2-link e2-h2 e2-md-h2"
+             [innerHTML]="contentHeaderLink | safe:'html'" route-transformer></a>
+        </div>
+        <p class="mb-2" data-scroll [class.e2-from-left]="!rowReverse" [class.e2-from-right]="rowReverse">
+          <b>When:</b> {{contentTextWhen}}</p>
+        <p class="e2-text_overflow mb-2" data-scroll
+           [class.e2-from-left]="!rowReverse" [class.e2-from-right]="rowReverse"
+           [class.active]="isContentTextDetailsActive">
+          <b>Details:</b> {{contentTextDetails}} <a class="e2-link"
+                                                    (click)="isContentTextDetailsActive = true">more...</a></p>
+        <p class="e2-text_overflow mb-2" data-scroll
+           [class.e2-from-left]="!rowReverse" [class.e2-from-right]="rowReverse"
+           [class.active]="isContentTextObjectiveActive">
+          <b>Objective:</b> {{contentTextObjective}} <a class="e2-link" (click)="isContentTextObjectiveActive = true">more...</a>
+        </p>
+      </div>
+
+      <ng-content></ng-content>
+    </div>
+
+    <div class="e2-announcement_image" *ngIf="contentImgUrl" [class.full-screen_md]="fullScreenMD">
+      <img [src]="contentImgUrl" alt="" class="w-100" data-scroll
+           [ngClass]="[rowReverse ? 'e2-from-left' : 'e2-from-right', contentImgClasses ? contentImgClasses : '']">
+    </div>
+  </div>
+</article>

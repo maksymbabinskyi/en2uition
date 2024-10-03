@@ -1,0 +1,62 @@
+@import "variables";
+
+:host(.e2-assessment_select){
+  position: relative;
+  height: 150px;
+  .content{
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+    -ms-overflow-style: none;  // IE 10+
+    overflow: -moz-scrollbars-none;  // Firefox
+    scrollbar-width: none;
+    &::-webkit-scrollbar { 
+      display: none;  // Safari and Chrome
+    }
+  }
+
+  /deep/ .area{
+    width: calc(100% / 2);
+    min-width: calc(100% / 2);
+    padding: 20px;
+    cursor: pointer;
+    border: 1px solid $color-gray_100;
+    &:hover,
+    &.active{
+      border-color: $color-primary_500;
+    }
+    @media screen and (min-width: map-get($grid-breakpoints, md)){
+      width: calc(100% / 4);
+      min-width: calc(100% / 4);
+    }
+  }
+
+  .nav{
+    position: relative;
+    width: 20px;
+    background-color: $color-gray_100;
+    cursor: pointer;
+    @media screen and (min-width: map-get($grid-breakpoints, md)){
+      width: 43px;
+    }
+    @media screen and (min-width: map-get($grid-breakpoints, lg)){
+      width: 60px;
+    }
+  }
+  .dots{
+    position: absolute;
+    top: 100%;
+    width: 100%;
+    .dot{
+      width: 9px;
+      height: 9px;
+      margin: 0 4px;
+      border-radius: 50%;
+      background-color: $color-gray_300;
+      cursor: pointer;
+      &.active,
+      &:hover{
+        background-color: $color-primary_500;
+      }
+    }
+  }
+}

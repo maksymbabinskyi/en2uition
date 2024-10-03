@@ -1,0 +1,167 @@
+<div class="b-section" *ngIf="!relationship.answeredQuestions">
+  <div class="-ol-container -ol-container_sm_2">
+
+    <div class="b-heading">
+      <h1 class="b-heading__title b-heading__title_last">Start Level 1 Test</h1>
+    </div>
+
+    <div class="_indent_side_by_side_lg">
+      <p class="b-text">All questions require you to provide answers for both you and your partner. Please be fair when you provide your answers. If you do not know an answer about your partner please select “not known”. You can change that answer later. Please answer each question as accurately as possible. Try not to leave any “neutral” answers. The more accurate your answers are the more accurate your results will be.</p>
+    </div>
+
+    <div class="b-partner-comparison">
+      <div class="b-partner-comparison__main">
+        <div class="b-partner-comparison__inner">
+          <div class="b-partner-comparison__item b-partner-comparison__item_person">
+            <div class="b-partner-comparison__person">
+              <img class="b-partner-comparison__person-photo" [src]="img" alt="">
+              <div class="b-partner-comparison__person-name">You</div>
+            </div>
+          </div>
+          <div class="b-partner-comparison__item b-partner-comparison__item_btns">
+            <div class="b-partner-comparison__btns b-partner-comparison__btns_single">
+              <button class="-ol-btn b-partner-comparison__btn" (click)="startLevel1()">Start answering level 1</button>
+            </div>
+          </div>
+          <div class="b-partner-comparison__item b-partner-comparison__item_person">
+            <div class="b-partner-comparison__person">
+              <img class="b-partner-comparison__person-photo" alt="" [src]="relationship.image && relationship.image.url || 'avatar_default.jpg'">
+              <div class="b-partner-comparison__person-name">{{relationship.partnerName}}</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="b-description-questionnaire b-description-questionnaire_opened">
+      <div class="b-description-questionnaire__header">
+        <div class="b-description-questionnaire__icon" ng-reflect-ng-style="[object Object]" style="background-image: url(&quot;assets/images/icons/questionnaire-icon-01.svg&quot;);"></div>
+        <div class="b-description-questionnaire__heading">
+          <h2 class="b-description-questionnaire__heading-text">Level 1</h2>
+        </div>
+        <p class="b-description-questionnaire__subheading">60 questions</p>
+        <p class="b-description-questionnaire__link">
+          <a class="b-description-questionnaire__link_text _letter_spacing_inherit">Test takes less than 12 min</a>
+        </p>
+      </div>
+      <div class="b-description-questionnaire__description">
+        <p class="b-description-questionnaire__text">Level 1 asks about basic background information like age, gender, relationship status, mental and physical condition as well as your social and financial status. Level 1 records the changes of these factors during your dating relationship between the first day you met your partner and the time at the end of the dating relationship. Level 1 ends with questions about the early history of your relationship: establishment and early intimate encounters (mental and physical).</p>
+      </div>
+      <h3 class="b-description-questionnaire__heading-sm">
+        <span class="b-description-questionnaire__heading-sm-inner">
+          <span class="b-description-questionnaire__heading-sm-text">Feedback Topics</span>
+        </span>
+      </h3>
+      <ul class="b-description-questionnaire__list">
+        <li class="b-description-questionnaire__list-item">
+          <p class="b-description-questionnaire__text-sm">
+            <span class="b-description-questionnaire__text-sm_semibold">Questions 1-15:</span> Did the relationship start with unfavorable initial conditions?<span class="b-description-questionnaire__text-sm_italic"> (such as differences in age, sexual orientation, marital status, education, career, financial status, accommodation, geographical location)</span>
+          </p>
+        </li>
+        <li class="b-description-questionnaire__list-item">
+          <p class="b-description-questionnaire__text-sm">
+            <span class="b-description-questionnaire__text-sm_semibold">Questions 16-30:</span> Was the relationship obstructed by differences in beliefs<span class="b-description-questionnaire__text-sm_italic"> (such as political, religious, family beliefs)</span>, or by bad habits, <span class="b-description-questionnaire__text-sm_italic">(such as shopping, video game addictions)</span> or physical and emotional conditions or disabilities?
+          </p>
+        </li>
+        <li class="b-description-questionnaire__list-item">
+          <p class="b-description-questionnaire__text-sm">
+            <span class="b-description-questionnaire__text-sm_semibold">Questions 31-45:</span> Were the first impressions on physical, sexual and socioeconomic compatibilities promising?<span class="b-description-questionnaire__text-sm_italic"> (such as first impression on physical appearance, early sexual encounters, acceptance by friends and family and making the relationship official)</span>
+          </p>
+        </li>
+        <li class="b-description-questionnaire__list-item">
+          <p class="b-description-questionnaire__text-sm b-description-questionnaire__text-sm_last">
+            <span class="b-description-questionnaire__text-sm_semibold">Questions 46-60:</span> Did the first 4 months provide a strong foundation for the relationship?<span class="b-description-questionnaire__text-sm_italic"> (such as communication, sexual intercourse, sharing thoughts and secrets, meeting friends and family, early disagreements and fights)</span>
+          </p>
+        </li>
+      </ul>
+    </div>
+  </div>
+</div>
+
+<div class="b-section" *ngIf="relationship.answeredQuestions && relationship.levelsCompleted !== 1">
+  <div class="-ol-container -ol-container_sm_2">
+
+    <div class="b-questionary">
+      <div class="b-questionary__inner">
+        <div class="b-questionary__item _none_tb">
+          <div class="b-questionary__box b-questionary__box_info">
+            <div class="b-questionary__partner">
+              <div class="b-questionary__partner-inner">
+                <div class="b-questionary__partner-item">
+                  <img alt="" [src]="relationship.image && relationship.image.url || 'avatar_default.jpg'" class="b-questionary__partner-photo">
+                </div>
+                <div class="b-questionary__partner-item b-questionary__partner-item">
+                  <div class="b-questionary__partner-info">
+                    <p class="b-questionary__partner-name">{{relationship.partnerName}}</p>
+                    <p class="b-questionary__partner-state">{{relationship.current ? 'CURRENT' : 'PAST'}} RELATIONSHIP</p>
+                    <time class="b-questionary__partner-date">Start Date: {{getFormattedDate(relationship.created)}}</time>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div>
+              <div class="b-questionary__lavels">
+                <button class="b-questionary__lavel" [class.b-questionary__lavel_opened]="open" (click)="open = !open">
+                  <span class="b-questionary__lavel-text">Level 1</span>
+                </button>
+              </div>
+              <div class="b-questionary__options" *ngIf="open">
+                <button class="b-questionary__option" [routerLink]="['/relationships', relationshipId, 'questionnaire', 'answers']">
+                  <span class="b-questionary__option-text">View / edit answered questions</span>
+                </button>
+                <button class="b-questionary__option b-questionary__option_last" disabled>
+                  <span class="b-questionary__option-text">View discussion topics</span>
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="b-questionary__item b-questionary__item_stretch">
+          <div class="b-questionary__box b-questionary__box_main">
+            <router-outlet></router-outlet>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="b-section" *ngIf="relationship.levelsCompleted === 1">
+  <div class="-ol-container -ol-container_sm_2">
+
+    <div class="b-heading">
+      <h1 class="b-heading__title b-heading__title_last">Congratulations.<br>You have completed all 6 levels</h1>
+    </div>
+    <div class="b-squares">
+      <div class="b-squares__inner">
+        <div class="b-squares__item">
+          <div class="b-content-sm">
+            <h2 class="b-content-sm__heading"><a href="#!" class="b-content-sm__heading_link">Your Relationship Advices</a></h2>
+            <p class="b-content-sm__text">After you answer all 6 levels, we will provide you with an analysis of the problems of your relationship, discussion about whether these problems can be solved and also discussion about what it takes to solve them. In addition to that we will also ...</p>
+          </div>
+        </div>
+        <div class="b-squares__item">
+          <div class="b-content-sm">
+            <h2 class="b-content-sm__heading"><a href="#!" class="b-content-sm__heading_link">Your Assessment on 24 Relationship Areas</a></h2>
+            <p class="b-content-sm__text">After you answer all 6 levels, we will provide you with an analysis of the problems of your relationship, discussion about whether these problems can be solved and also discussion about what it takes to solve them. In addition to that we will also ...</p>
+          </div>
+        </div>
+        <div class="b-squares__item">
+          <div class="b-content-sm">
+            <h2 class="b-content-sm__heading"><a href="#!" class="b-content-sm__heading_link">Your Assesment Based on Triangular Theory of Love</a></h2>
+            <p class="b-content-sm__text">After you answer all 6 levels, we will provide you with an analysis of the problems of your relationship, discussion about whether these problems can be solved and also discussion about what it takes to solve them. In addition to that we will also ...</p>
+          </div>
+        </div>
+        <div class="b-squares__item">
+          <div class="b-content-sm">
+            <h2 class="b-content-sm__heading"><a href="#!" class="b-content-sm__heading_link">Your Advice Based on Triangular Theory of Love</a></h2>
+            <p class="b-content-sm__text">After you answer all 6 levels, we will provide you with an analysis of the problems of your relationship, discussion about whether these problems can be solved and also discussion about what it takes to solve them. In addition to that we will also ...</p>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="l-flex l-flex_center">
+      <button class="-ol-btn -ol-btn_w_fix_lg" [routerLink]="'/relationships/' + relationship.id + '/questionnaire/answers'">View / Edit Your Answers</button>
+    </div>
+  </div>
+</div>

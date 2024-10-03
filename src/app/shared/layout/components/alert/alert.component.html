@@ -1,0 +1,8 @@
+<div class="b-alert" [class.b-alert_success]="type === 'success'" [class.b-alert_danger]="type === 'failed'">
+  <p class="b-alert__text" *ngIf="message">{{message}}</p>
+  <ng-container *ngIf="messages && messages.length > 0">
+    <p class="b-alert__text" *ngFor="let m of messages">{{m.description}}</p>
+  </ng-container>
+  <button class="b-alert__cross" (click)="close()"></button>
+</div>
+  

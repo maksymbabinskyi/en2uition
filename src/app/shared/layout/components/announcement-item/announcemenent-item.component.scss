@@ -1,0 +1,195 @@
+@import "variables";
+
+.e2-announcement{
+  &_text{
+    max-width: 540px;
+
+    @media screen and (min-width: map-get($grid-breakpoints, lg)){
+      max-width: 500px;
+    }
+    .e2-text_overflow{
+      max-height: calc(1.5em * 4);
+      @media screen and (min-width: map-get($grid-breakpoints, lg)){
+        max-height: calc(1.667em * 4);
+      }
+      overflow: hidden;
+      position: relative;
+      transition: max-height 0.3s ease-in-out;
+      will-change: max-height;
+      &:after{
+        content: "more...";
+        color: transparent;
+        padding-left: 30px;
+        position: absolute;
+        bottom: 0;
+        right: 0;
+        z-index: 1;
+        height: 1.2em;
+        background: linear-gradient(to right, rgba(255, 255, 255, 0.3), rgba(255, 255, 255, 1) 25%);
+      }
+      a{
+        position: absolute;
+        line-height: 1.667;
+        right: 0;
+        bottom: 0;
+        z-index: 2;
+        background-color: #fff;
+      }
+
+      &.active{
+        max-height: 700px;
+        a,
+        &:after{
+          display: none;
+        }
+      }
+    }
+  }
+  // &_header{ 
+  //   padding-top: 30px;
+  //   padding-bottom: 30px;
+  //   @media screen and (min-width: map-get($grid-breakpoints, lg)){
+  //     padding-top: 70px;
+  //     padding-bottom: 70px;
+  //   }
+  // }
+  &_panel{
+    &-wrap{
+      position: relative;
+    }
+    color: #fff;
+    position: relative;
+    padding: 50px 20px;
+    min-height: 505px;
+    max-width: 265px;
+    width: 100%;
+    left: -20px;
+    z-index: 2;
+    & + div{
+      position: absolute;
+      left: 0;
+      top: 50%;
+      transform: translateY(-50%);
+      img{
+        max-width: 100%;
+        max-height: 100%;  
+      }
+    }
+    @media screen and (min-width: map-get($grid-breakpoints, md)){
+      min-height: 430px;
+      max-width: 650px;
+      padding: 50px 75px;
+      width: 100%;
+      left: auto;
+      right: -45px; //stick to the right
+      margin-top: 285px;
+      & + div{
+        top: 0;
+        transform: none;
+        height: 100%;
+      }
+    }
+
+    @media screen and (min-width: map-get($grid-breakpoints, lg)){
+      margin-top: 70px;
+      right: auto;
+    }
+
+  }
+  &_content{
+    .e2-announcement_text{
+      padding-left: 55px;
+      box-sizing: content-box;
+      @media screen and (max-width: map-get($grid-breakpoints, lg) - 1){
+        padding-left: 0;
+      }
+      @media screen and (min-width: 1024px) and (max-width: 1300px){
+        padding-left: 15px;
+      }
+    }
+    @media screen and (max-width: map-get($grid-breakpoints, lg) - 1){
+      .e2-announcement_header + .e2-announcement_text {
+        padding-top: 0;
+      }
+    }
+    .flex-lg-row-reverse > &{
+      max-width: 540px;
+      width: 100%;
+      margin: 0;
+      @media screen and (min-width: map-get($grid-breakpoints, lg)){
+        max-width: 650px;
+      }
+      .e2-announcement_text{
+        padding-left: 0;
+      }
+    }
+  }
+  &_item{
+    position: relative;
+    .e2-text_pre-dash + .e2-announcement_text{
+      @media screen and (min-width: map-get($grid-breakpoints, lg)){
+        padding-left: 55px;
+      }
+    }
+    ul{
+      li{
+        padding-left: 15px;
+        position: relative;
+        &::before{
+          content: "•";
+          position: absolute;
+          width: 15px;
+          left: 0;
+          line-height: 1.667;
+        }
+      }
+    }
+  }
+  &_image{
+    width: 100%;
+    order: -1;
+    @media screen and (max-width: map-get($grid-breakpoints, md) - 1){
+      &.full-screen_md{
+        width: 100vw;
+      }
+    }
+    @media screen and (min-width: map-get($grid-breakpoints, md)) and (max-width: map-get($grid-breakpoints, lg) - 1){
+      &:not(.full-screen_md){
+        max-width: 540px;
+      }
+      &.full-screen_md{
+        padding-right: 45px;
+      }
+    }
+    @media screen and (min-width: map-get($grid-breakpoints, lg)){
+      max-width: 650px;
+      order: inherit;
+    }
+    img{
+      margin: 0 auto;
+      max-width: 430px;
+      @media screen and (max-width: map-get($grid-breakpoints, lg) - 1){
+        max-width: 540px;
+      }
+      &.e2-full-width{
+        max-width: 100%;
+        @media screen and (min-width: 1024px) and (max-width: 1300px){
+          max-width: 430px;
+        }
+      }
+    }
+  }
+  ul{
+    li{
+      padding-left: 15px;
+      position: relative;
+      &::before{
+        content: "•";
+        position: absolute;
+        width: 15px;
+        left: 0;
+        line-height: 1.667;
+      }
+    }
+  }
+}

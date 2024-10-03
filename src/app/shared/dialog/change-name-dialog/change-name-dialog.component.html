@@ -1,0 +1,27 @@
+<form [formGroup]="form" class="p-4">
+  <h2 class="text-center mb-3">Account Name</h2>
+  <div class="-ol-row-input">
+    <div class="-ol-row">
+      <div class="-ol-col-12 -ol-col-tb-12 -ol-col-mb-12 mb-4">
+        <div class="-ol-row-input-mb">
+          <div class="-ol-input-wrap">
+            <input type="text" class="-ol-input" formControlName="firstName" placeholder="First name">
+          </div>
+        </div>
+      </div>
+      <div class="-ol-col-12 -ol-col-tb-12 -ol-col-mb-12 mb-4">
+        <div class="-ol-row-input-mb">
+          <div class="-ol-input-wrap">
+            <input type="text" class="-ol-input" formControlName="lastName" placeholder="Last name">
+          </div>
+        </div>
+      </div>
+      <div class="-ol-col-6 -ol-col-tb-6 -ol-col-mb-6">
+        <button class="-ol-btn -ol-btn_outline -ol-btn_w_fix_md" (click)="dialogRef.close()">Cancel</button>
+      </div>
+      <div class="-ol-col-6 -ol-col-tb-6 -ol-col-mb-6">
+        <button class="-ol-btn -ol-btn_w_fix_md" (click)="changeName()">Change</button>
+      </div>
+    </div>
+  </div>
+</form>
